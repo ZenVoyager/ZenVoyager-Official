@@ -1,0 +1,133 @@
+.testimonials_section {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem;
+}
+.heading_ctr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 10rem 0;
+  margin-bottom: 5rem;
+}
+.head_txt {
+  --radical-x: 120%;
+  --radical-y: 100%;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: #fff;
+  font-family: Poppins;
+  font-size: var(--h1-fs);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 127.778% */
+  background: radial-gradient(
+    var(--radical-x) var(--radical-y) at 10% 50%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.para_txt {
+  max-width: 490px;
+  font-weight: 300;
+}
+
+.btn_ctr {
+  margin-top: 30px;
+}
+.btn_s {
+  position: relative;
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* font-size: 14px; */
+  /* border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(140deg, #fff 0%, #ffffff01 90%); */
+
+  border-radius: 32px;
+  background: radial-gradient(
+      90% 160% at -20% -30%,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    ),
+    #070b0e;
+  transition: box-shadow 500ms ease-in-out;
+}
+.btn_s::after {
+  content: "";
+  position: absolute;
+
+  width: 101%;
+  height: 104%;
+  border-radius: 32px;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    #ffffff01 90%
+  );
+  z-index: -1;
+  transition: box-shadow 500ms ease-in-out;
+}
+.btn_s:hover {
+  z-index: 0;
+  box-shadow: -41px 0 70px #ffffff4f, 40px 0 70px #45454566;
+}
+.c2 {
+  display: flex;
+}
+.animation_container {
+  /* background: purple; */
+  display: flex;
+}
+.animation_strip {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  /* background: red; */
+}
+
+.card {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 30px 40px;
+
+  border-radius: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: radial-gradient(
+      78.26% 78.26% at -19.6% -40.92%,
+      #fff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      101.81% 100.13% at 35.3% 25.07%,
+      rgba(255, 255, 255, 0) 53.56%,
+      rgba(255, 255, 255, 0.3) 100%
+    ),
+    rgba(5, 8, 14, 0.4);
+  backdrop-filter: blur(22px);
+}
+.profile_pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+.name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.designation {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.comments {
+  font-size: 12px;
+}

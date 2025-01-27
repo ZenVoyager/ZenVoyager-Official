@@ -1,0 +1,117 @@
+.team_section{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading_ctr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  
+  margin-bottom: 5rem;
+}
+.head_txt {
+  --radical-x: 50%;
+  --radical-y: 80%;
+  text-align: center;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: #fff;
+  font-family: Poppins;
+  font-size: var(--h1-fs);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 127.778% */
+  background: radial-gradient(
+    var(--radical-x) var(--radical-y) at 50% 50%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.para_txt {
+  max-width: 500px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.team_member_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-items: center;
+  gap: 10px;
+}
+.banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.profile_pic {
+  --profile_photo_size: 120px;
+  width: var(--profile_photo_size);
+  height: var(--profile_photo_size);
+  background: rgb(216, 216, 216);;
+  border-radius: 100%;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 400;
+
+  --radical-x: 50%;
+  --radical-y: 80%;
+
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: #fff;
+
+  background: radial-gradient(
+    var(--radical-x) var(--radical-y) at 50% 50%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  font-size: 12px;
+}
+.line {
+  width: 28px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.75);
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.social_links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}

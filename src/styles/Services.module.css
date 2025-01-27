@@ -1,0 +1,108 @@
+.heading_ctr{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.head_txt {
+  --radical-x: 50%;
+  --radical-y: 80%;
+  text-align: center;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: #fff;
+  font-family: Poppins;
+  font-size: var(--h1-fs);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 127.778% */
+  background: radial-gradient(
+    var(--radical-x) var(--radical-y) at 50% 50%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.para_txt{
+  max-width: 500px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.cards_ctr {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  margin: 5rem 0;
+  margin-left: 5rem;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  width: 300px;
+  height: 450px;
+  /* border: 1px solid var(--white-t-20); */
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 0px -20px;
+}
+.cta_card {
+  background: radial-gradient(
+      223.13% 225.44% at -128.88% -83%,
+      rgba(246, 246, 246, 0.4) 0%,
+      rgba(246, 246, 246, 0) 100%
+    ),
+    url(../assets/services/lets_discuss.webp) 0px -40px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+.card_txt {
+  display: flex;
+  flex-direction: column;
+  gap: -2px;
+
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37px; /* 102.778% */
+  background: radial-gradient(
+    130% 145% at -6% 0%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bold_txt {
+  font-weight: 700;
+}
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta span {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px; /* 200% */
+  background: radial-gradient(
+    185% 196% at 0% 0%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

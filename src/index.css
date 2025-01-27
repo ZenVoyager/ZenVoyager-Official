@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #05080e;
+  --black: #05080e;
+  --white: #ffffff;
+  --white-t-20: rgba(255, 255, 255, 0.2);
+  --white-t-75: rgba(255, 255, 255, 0.75);
+  --primary-blue: #0065be;
+
+  --h1-fs: 32px;
+  --h2-fs: 22px;
+  --link-fs: 14px;
+  --button-fs: 14px;
+  --p-fs: 14px;
+  --bullet-fs: 12px;
+  --txt-fs: 12px;
+  --misc-fs: 42px;
+  --contact-fs: 18px;
+  --contact-email-fs: 24px;
+}
+
+.border {
+  border-image: linear-gradient(to right, #fff 0%, #fff 100%) 1;
+  /*border-radius: 5px;*/ /* this doesn't work */
+  border-width: 1px;
+  border-style: solid;
+  /* padding: 5px; */
+}
+
+body {
+  background-color: var(--bg);
+  overflow-x: hidden;
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+a{
+  text-decoration: none;
+  color: var(--white);
+}
+li{
+  list-style: none;
+}
+button{
+  background: none;
+  color: var(--white);
+  border: none;
+}
+.italic{
+  font-style: italic;
+}
+.playfair{
+  font-family: "Playfair Display", serif;
+}
