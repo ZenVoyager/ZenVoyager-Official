@@ -75,3 +75,9 @@ export const twitter = (
     </defs>
   </svg>
 );
+
+export const tilted_arrow = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+  <path d="M20.6276 14.7278L12.0207 23.3347L10.6065 21.9204L19.2134 13.3135L11.6276 13.3135V11.3138L22.6273 11.3138L22.6273 22.3136L20.6276 22.3136L20.6276 14.7278Z" fill="white"/>
+</svg>
+)

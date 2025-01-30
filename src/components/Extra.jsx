@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/Extra.module.css";
 
+import bg_grad from "../assets/bg_grad.png"
+
 function Extra() {
   return (
     <section className={styles.extra_section}>
+      
       <div className={styles.container}>
         <h3 className={styles.heading}>
           Ready to <span className="playfair italic">Elevate</span> your
@@ -17,7 +20,9 @@ function Extra() {
         <div className={styles.btn_ctr}>
           <Link className={styles.btn_p}>Let's Discuss</Link>
         </div>
+        
       </div>
+      
     </section>
   );
 }
