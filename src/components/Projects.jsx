@@ -30,7 +30,7 @@ function Projects() {
   );
 
   return (
-    <section>
+    <section className={styles.projects_section}>
       <div className={styles.heading_ctr}>
         <span className={styles.head_txt}>
           <span className={`playfair italic`}>Project</span> Showcase

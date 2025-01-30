@@ -1,3 +1,10 @@
+.services_section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  min-height: 100vh;
+}
 .heading_ctr{
   display: flex;
   flex-direction: column;
@@ -33,9 +40,10 @@
 .cards_ctr {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 25px;
   margin: 5rem 0;
-  margin-left: 5rem;
+  /* margin-left: 5rem; */
 }
 .card {
   position: relative;

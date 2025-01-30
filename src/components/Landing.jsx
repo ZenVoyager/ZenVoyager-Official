@@ -6,7 +6,7 @@ import { instagram,linkedIn,facebook } from '../assets/icons';
 function Landing() {
 
   return (
-    <section className={`${styles.home_section} padding-top-xl`}>
+    <section className={`${styles.home_section} `}>{/*padding-top-xl*/}
       <div className={styles.heading_ctr}>
         <ul className={styles.jelly_tags}>
           <li>Concept</li>
