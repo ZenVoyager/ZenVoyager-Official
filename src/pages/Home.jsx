@@ -7,10 +7,13 @@ import Testimonials from "../components/Testimonials";
 import Team from "../components/Team";
 import Extra from "../components/Extra";
 import Footer from "../components/Footer";
+import Gradline from "../components/Gradline";
+import Scene from "../components/Scene";
 
 function Home() {
   return (
     <>
+      <Scene />
       <Landing />
       <Clients />
       <Services />
@@ -18,7 +21,9 @@ function Home() {
       <Testimonials />
       <Team />
       <Extra />
+      <Gradline />
       <Footer />
+      <Gradline />
     </>
   );
 }

@@ -2,6 +2,14 @@
   display: flex;
   justify-content: space-between;
   padding: 5rem;
+
+  background: radial-gradient(
+      90% 300% at 50% -280%,
+      #fff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(5, 8, 14, 0.3);
+  backdrop-filter: blur(22px);
 }
 .c1 {
   display: flex;
@@ -56,8 +64,8 @@
 .email {
   font-size: 28px;
 }
-.btn_ctr{
-    margin-bottom: 50px;
+.btn_ctr {
+  margin-bottom: 50px;
 }
 .btn_s {
   position: relative;
