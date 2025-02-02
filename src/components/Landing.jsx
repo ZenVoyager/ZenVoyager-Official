@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
+// import Scene from "./Scene";
+
 import styles from "../styles/Home.module.css";
 import { Link } from "react-router-dom";
-import { instagram,linkedIn,facebook } from '../assets/icons';
+import { instagram, linkedIn, facebook } from "../assets/icons";
 
 function Landing() {
-
   return (
-    <section className={`${styles.home_section} `}>{/*padding-top-xl*/}
+    <section className={`${styles.home_section} `}>
+      {/*padding-top-xl*/}
       <div className={styles.heading_ctr}>
         <ul className={styles.jelly_tags}>
           <li>Concept</li>
@@ -14,7 +16,8 @@ function Landing() {
           <li>Conquer</li>
         </ul>
         <h1 className={styles.heading}>
-          The last stop for all your <span className={`playfair italic`}>design</span>{" "}<br/>
+          The last stop for all your{" "}
+          <span className={`playfair italic`}>design</span> <br />
           and <span className={`playfair italic`}>development</span> needs
         </h1>
       </div>
@@ -35,8 +38,9 @@ function Landing() {
           </li>
         </ul>
       </div>
+      {/* <Scene /> */}
     </section>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

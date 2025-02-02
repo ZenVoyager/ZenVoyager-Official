@@ -8,12 +8,12 @@ import Team from "../components/Team";
 import Extra from "../components/Extra";
 import Footer from "../components/Footer";
 import Gradline from "../components/Gradline";
-import Scene from "../components/Scene";
+// import Scene from "../components/Scene";
 
 function Home() {
   return (
     <>
-      <Scene />
+      {/* <Scene /> */}
       <Landing />
       <Clients />
       <Services />

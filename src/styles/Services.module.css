@@ -52,6 +52,11 @@
   width: 300px;
   height: 450px;
   /* border: 1px solid var(--white-t-20); */
+  transition: transform 400ms ease-out;
+}
+.card:hover{
+  transform: translateY(-10px) scale(1.03);
+  /* transform: translateY(5px); */
 }
 .card img {
   width: 100%;

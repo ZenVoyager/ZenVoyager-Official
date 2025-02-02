@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Clients.module.css";
-import clients_img from "../assets/clients.png";
+import clients_img from "../assets/clients_strip.png";
 
 function Clients() {
   return (
@@ -14,10 +14,26 @@ function Clients() {
       </div>
       <div className={styles.slider_ctr}>
         <div className={styles.slider}>
-          <img src={clients_img} alt="our clients" />
-          <img src={clients_img} alt="our clients" />
-          <img src={clients_img} alt="our clients" />
-          <img src={clients_img} alt="our clients" />
+          <img
+            src={clients_img}
+            alt="our clients"
+            className={styles.slider_item}
+          />
+          <img
+            src={clients_img}
+            alt="our clients"
+            className={styles.slider_item}
+          />
+          <img
+            src={clients_img}
+            alt="our clients"
+            className={styles.slider_item}
+          />
+          <img
+            src={clients_img}
+            alt="our clients"
+            className={styles.slider_item}
+          />
         </div>
       </div>
       <div className={styles.bottom}>

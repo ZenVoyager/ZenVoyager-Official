@@ -6,7 +6,7 @@ export default function Scene() {
   return (
     <section className={styles.threedbg}>
       <div className={styles.mask}></div>
-    <Spline scene="https://prod.spline.design/joShmGmVYjGME151/scene.splinecode" />
+    <Spline scene="https://prod.spline.design/F7gZHWdiAIZUok1r/scene.splinecode" />
     </section>
   );
 }
