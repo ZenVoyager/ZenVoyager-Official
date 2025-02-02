@@ -77,7 +77,31 @@ export const twitter = (
 );
 
 export const tilted_arrow = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-  <path d="M20.6276 14.7278L12.0207 23.3347L10.6065 21.9204L19.2134 13.3135L11.6276 13.3135V11.3138L22.6273 11.3138L22.6273 22.3136L20.6276 22.3136L20.6276 14.7278Z" fill="white"/>
-</svg>
-)
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="34"
+    height="34"
+    viewBox="0 0 34 34"
+    fill="none"
+  >
+    <path
+      d="M20.6276 14.7278L12.0207 23.3347L10.6065 21.9204L19.2134 13.3135L11.6276 13.3135V11.3138L22.6273 11.3138L22.6273 22.3136L20.6276 22.3136L20.6276 14.7278Z"
+      fill="white"
+    />
+  </svg>
+);
+
+export const arrow_down = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="60"
+    height="60"
+    viewBox="0 0 60 57"
+    fill="none"
+  >
+    <path
+      d="M21.0361 18.5616L18.5612 21.0364L33.4104 35.8857L19.7986 35.8857L19.7986 39.4H39.3996V19.799L35.8853 19.799L35.8853 33.4108L21.0361 18.5616Z"
+      fill="#F6F6F6"
+    />
+  </svg>
+);

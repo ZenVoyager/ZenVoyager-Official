@@ -40,7 +40,7 @@ function Projects() {
           in development and creativity.
         </p>
         <div className={styles.btn_ctr}>
-          <Link className={styles.btn_s}>View All {arrow}</Link>
+          <Link className={styles.btn_s} to="/projects">View All {arrow}</Link>
         </div>
       </div>
 
