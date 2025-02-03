@@ -42,21 +42,25 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
-a{
+a {
   text-decoration: none;
   color: var(--white);
 }
-li{
+li {
   list-style: none;
 }
-button{
+button {
   background: none;
   color: var(--white);
   border: none;
+  font-family: "Poppins", sans-serif;
 }
-.italic{
+input {
+  font-family: "Poppins", sans-serif;
+}
+.italic {
   font-style: italic;
 }
-.playfair{
+.playfair {
   font-family: "Playfair Display", serif;
 }

@@ -1,28 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ab_productions_logo from "../assets/ab_productions_logo.svg"
-import styles from "../styles/Navbar.module.css"
+import { Link, NavLink } from "react-router-dom";
+
+import ab_productions_logo from "../assets/ab_productions_logo.svg";
+import styles from "../styles/Navbar.module.css";
+import "../styles/Navbar.css";
 
 function Navbar() {
   return (
     <nav>
       <div className={styles.navbar}>
         <div className={styles.logo}>
+          <Link to="/">
             <img src={ab_productions_logo} alt="AB Productions" />
+          </Link>
         </div>
 
-        <ul className={`${styles.nav_links}`}>
+        <ul className={`${styles.nav_links} nav_links`}>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/projects">Projects</Link>
+            <NavLink to="/projects">Projects</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </div>

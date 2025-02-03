@@ -1,0 +1,8 @@
+.nav_links li a {
+  color: var(--white);
+}
+.nav_links li a.active {
+  color: var(--primary-blue-ii);
+  /* font-weight: 500; */
+  text-shadow: 0 0 1px #6cbaff;
+}
