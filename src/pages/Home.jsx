@@ -15,10 +15,10 @@ function Home() {
     <>
       {/* <Scene /> */}
       <Landing />
-      {/* <Clients />
+      <Clients />
       <Services />
       <Projects />
-      <Testimonials />
+      {/* <Testimonials />
       <Team />
       <Extra />
       <Gradline />

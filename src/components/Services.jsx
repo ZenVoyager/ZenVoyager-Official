@@ -31,43 +31,45 @@ function Services() {
         </span>
         <p className={styles.para_txt}>
           From development to editing, we offer a range of services to meet your
-          creative and technological needs.
+          creative and technological needs and expectation.
         </p>
       </div>
 
       <div className={styles.cards_ctr}>
-        <Link>
-          <div className={styles.card}>
-            <img src={coding_dev} alt="Coding & Development" />
-          </div>
-        </Link>
-
-        <Link>
-          <div className={styles.card}>
-            <img src={video_editing} alt="Videography & Editing" />
-          </div>
-        </Link>
-
-        <Link>
-          <div className={styles.card}>
-            <img src={graphic_design} alt="Graphic Designing" />
-          </div>
-        </Link>
-
-        <Link>
-          <div className={`${styles.card} ${styles.cta_card}`}>
-            <div className={styles.card_txt}>
-              <span>Want</span>
-              <span className={styles.bold_txt}>ANYTHING</span>
-              <span>Else</span>
+        <div className={styles.scroller}>
+          <Link>
+            <div className={styles.card}>
+              <img src={coding_dev} alt="Coding & Development" />
             </div>
-            {/* <img src={more_service} alt="Explore more options" /> */}
-            <div className={styles.cta}>
-              <span>Let's Discuss</span>
-              {arrow}
+          </Link>
+
+          <Link>
+            <div className={styles.card}>
+              <img src={video_editing} alt="Videography & Editing" />
             </div>
-          </div>
-        </Link>
+          </Link>
+
+          <Link>
+            <div className={styles.card}>
+              <img src={graphic_design} alt="Graphic Designing" />
+            </div>
+          </Link>
+
+          <Link>
+            <div className={`${styles.card} ${styles.cta_card}`}>
+              <div className={styles.card_txt}>
+                <span>Want</span>
+                <span className={styles.bold_txt}>ANYTHING</span>
+                <span>Else</span>
+              </div>
+              {/* <img src={more_service} alt="Explore more options" /> */}
+              <div className={styles.cta}>
+                <span>Let's Discuss</span>
+                {arrow}
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );
