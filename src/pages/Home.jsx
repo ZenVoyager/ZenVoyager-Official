@@ -15,7 +15,7 @@ function Home() {
     <>
       {/* <Scene /> */}
       <Landing />
-      <Clients />
+      {/* <Clients />
       <Services />
       <Projects />
       <Testimonials />
@@ -23,7 +23,7 @@ function Home() {
       <Extra />
       <Gradline />
       <Footer />
-      <Gradline />
+      <Gradline /> */}
     </>
   );
 }

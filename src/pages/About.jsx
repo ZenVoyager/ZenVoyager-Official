@@ -12,7 +12,7 @@ function About() {
       <Landing />
       <Values />
       <Workflow />
-      <Studio />
+      {/* <Studio /> */}
       <Gradline />
       <Footer />
     </>
