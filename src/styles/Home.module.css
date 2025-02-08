@@ -108,6 +108,8 @@
   }
   .heading{
     gap: 15px;
+    line-height: 1.5;
+    font-size: 22px;
   }
   .jelly_tags{
     gap: 20px;
@@ -116,15 +118,23 @@
     padding: 4px 16px;
     font-size: 9px;
   }
-  .heading{
-    line-height: 1.5;
-    font-size: 18px;
-  }
   .btn_p{
     padding: 8px 24px;
     font-size: 12px;
   }
   .social_ctr{
     font-size: 10px;
+  }
+}
+
+@media (max-width: 330px) {
+  
+  .heading{
+
+    font-size: 18px;
+  }
+
+  .social_links li{
+    transform: scale(0.9);
   }
 }
