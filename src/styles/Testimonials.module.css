@@ -82,12 +82,7 @@
   z-index: 0;
   box-shadow: -41px 0 70px #ffffff4f, 40px 0 70px #45454566;
 }
-/* .c2 {
-  display: flex;
-} */
-.c1 {
-  /* flex: 1; */
-}
+
 .testimonial_ctr {
   /* background: purple; */
   display: flex;
@@ -192,7 +187,7 @@
   }
   .card {
     width: 320px;
-    border-radius: 12px;
+    border-radius: 20px;
     padding: 25px 30px;
   }
   .name {

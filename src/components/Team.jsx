@@ -17,89 +17,91 @@ function Team() {
           member brings unique expertise to the table.
         </p>
       </div>
-      <div className={styles.team_member_container}>
-        <div className={styles.card}>
-          <div className={styles.banner}>
-            <img src={team_bg} alt="" className={styles.banner_img} />
-            <div className={styles.profile_pic}>
-              <img src="" alt="" />
+      <div className={styles.team_ctr}>
+        <div className={styles.team_ctr_scroller}>
+          <div className={styles.card}>
+            <div className={styles.banner}>
+              <img src={team_bg} alt="" className={styles.banner_img} />
+              <div className={styles.profile_pic}>
+                <img src="" alt="" />
+              </div>
             </div>
+            <h4 className={styles.name}>
+              <span className={`playfair italic`}>Arin</span> Bagul
+            </h4>
+            <div className={styles.details}>
+              <span>Founder & CEO</span>
+              <span>Developer, Designer</span>
+            </div>
+            <div className={styles.line}></div>
+            <ul className={styles.social_links}>
+              <li>
+                <a href="#">{instagram}</a>
+              </li>
+              <li>
+                <a href="#">{linkedIn}</a>
+              </li>
+              <li>
+                <a href="#">{facebook}</a>
+              </li>
+            </ul>
           </div>
-          <h4 className={styles.name}>
-            <span className={`playfair italic`}>Arin</span> Bagul
-          </h4>
-          <div className={styles.details}>
-            <span>Founder & CEO</span>
-            <span>Developer, Designer</span>
-          </div>
-          <div className={styles.line}></div>
-          <ul className={styles.social_links}>
-            <li>
-              <a href="#">{instagram}</a>
-            </li>
-            <li>
-              <a href="#">{linkedIn}</a>
-            </li>
-            <li>
-              <a href="#">{facebook}</a>
-            </li>
-          </ul>
-        </div>
 
-        <div className={styles.card}>
-          <div className={styles.banner}>
-            <img src={team_bg} alt="" className={styles.banner_img} />
-            <div className={styles.profile_pic}>
-              <img src="" alt="" />
+          <div className={styles.card}>
+            <div className={styles.banner}>
+              <img src={team_bg} alt="" className={styles.banner_img} />
+              <div className={styles.profile_pic}>
+                <img src="" alt="" />
+              </div>
             </div>
+            <h4 className={styles.name}>
+              <span className={`playfair italic`}>Anuj</span> Rawat
+            </h4>
+            <div className={styles.details}>
+              <span>Co-founder</span>
+              <span>Developer, Designer</span>
+            </div>
+            <div className={styles.line}></div>
+            <ul className={styles.social_links}>
+              <li>
+                <a href="#">{instagram}</a>
+              </li>
+              <li>
+                <a href="#">{linkedIn}</a>
+              </li>
+              <li>
+                <a href="#">{facebook}</a>
+              </li>
+            </ul>
           </div>
-          <h4 className={styles.name}>
-            <span className={`playfair italic`}>Anuj</span> Rawat
-          </h4>
-          <div className={styles.details}>
-            <span>Co-founder</span>
-            <span>Developer, Designer</span>
-          </div>
-          <div className={styles.line}></div>
-          <ul className={styles.social_links}>
-            <li>
-              <a href="#">{instagram}</a>
-            </li>
-            <li>
-              <a href="#">{linkedIn}</a>
-            </li>
-            <li>
-              <a href="#">{facebook}</a>
-            </li>
-          </ul>
-        </div>
 
-        <div className={styles.card}>
-          <div className={styles.banner}>
-            <img src={team_bg} alt="" className={styles.banner_img} />
-            <div className={styles.profile_pic}>
-              <img src="" alt="" />
+          <div className={styles.card}>
+            <div className={styles.banner}>
+              <img src={team_bg} alt="" className={styles.banner_img} />
+              <div className={styles.profile_pic}>
+                <img src="" alt="" />
+              </div>
             </div>
+            <h4 className={styles.name}>
+              <span className={`playfair italic`}>Aryan</span> Patel
+            </h4>
+            <div className={styles.details}>
+              <span>IIT Dharwad Alumni</span>
+              <span>Developer</span>
+            </div>
+            <div className={styles.line}></div>
+            <ul className={styles.social_links}>
+              <li>
+                <a href="#">{instagram}</a>
+              </li>
+              <li>
+                <a href="#">{linkedIn}</a>
+              </li>
+              <li>
+                <a href="#">{facebook}</a>
+              </li>
+            </ul>
           </div>
-          <h4 className={styles.name}>
-            <span className={`playfair italic`}>Aryan</span> Patel
-          </h4>
-          <div className={styles.details}>
-            <span>IIT Dharwad Alumni</span>
-            <span>Developer</span>
-          </div>
-          <div className={styles.line}></div>
-          <ul className={styles.social_links}>
-            <li>
-              <a href="#">{instagram}</a>
-            </li>
-            <li>
-              <a href="#">{linkedIn}</a>
-            </li>
-            <li>
-              <a href="#">{facebook}</a>
-            </li>
-          </ul>
         </div>
       </div>
     </section>

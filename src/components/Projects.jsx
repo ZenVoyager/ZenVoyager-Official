@@ -30,8 +30,15 @@ function Projects() {
     </svg>
   );
 
+  const handleRightClick = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <section className={styles.projects_section}>
+    <section
+      className={styles.projects_section}
+      onContextMenu={handleRightClick}
+    >
       <div className={styles.heading_ctr}>
         <span className={styles.head_txt}>
           <span className={`playfair italic`}>Project</span> Showcase
