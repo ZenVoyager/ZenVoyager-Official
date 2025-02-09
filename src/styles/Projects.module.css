@@ -38,6 +38,11 @@
   margin-top: 30px;
 }
 .btn_s {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   position: relative;
   display: flex;
   padding: 8px 24px;
@@ -85,6 +90,59 @@
   margin: 5rem;
   justify-content: center;
   justify-items: center;
+  position: relative;
+}
+.project_cards_ctr::before {
+  content: "Long press to view project details";
+  font-family: poppins;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  font-size: 10px;
+  padding: 4px 16px;
+  align-items: center;
+  border-radius: 8px;
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  background: radial-gradient(
+    80% 130% at 0% 10%,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: float_animation 3s ease infinite;
+
+  display: none;
+}
+.project_cards_ctr::after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -100;
+
+  width: 0;
+  height: 0;
+  --size: 7px;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid white;
+  opacity: 15%;
+
+  animation: float_animation 3s ease infinite;
+  display: none;
+}
+
+@keyframes float_animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .project_card {
@@ -100,6 +158,12 @@
   /* cursor: pointer; */
   border-radius: 5px;
   /* border-radius: 12px; */
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .project_bg_img_ctr {
   position: absolute;
@@ -240,7 +304,7 @@
   }
 }
 @media (max-width: 650px) {
-  .project_heading{
+  .project_heading {
     font-weight: 500;
   }
   .about_project {
@@ -250,6 +314,10 @@
 @media (max-width: 575px) {
   .project_heading {
     font-size: 24px;
+  }
+  .project_cards_ctr::after,
+  .project_cards_ctr::before {
+    display: flex;
   }
 }
 @media (max-width: 550px) {
@@ -269,7 +337,7 @@
     /* gap: 20px; */
     gap: 2rem;
   }
-  
+
   .about_project {
     -webkit-line-clamp: 3;
   }

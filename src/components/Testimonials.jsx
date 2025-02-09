@@ -46,35 +46,41 @@ function Testimonials() {
         </div>
       </div>
 
-      <div className={styles.c2}>
-        <div className={styles.animation_container}>
-          <div className={styles.animation_strip}>
-
-            <div className={styles.card}>
-              <img src="https://picsum.photos/200" alt="profile pic" className={styles.profile_pic} />
-              <div className={styles.details}>
-                <h4 className={styles.name}>Jalaj Tiwari</h4>
-                <span className={styles.designation}>Founder, eHawkers Marketing LLP</span>
-              </div>
-              <p className={styles.comments}>
-                AB Productions has transformed our brand image with their
-                exceptional design services. They are very Professional,
-                reliable, and creative. Highly recommend AB Productions.
-              </p>
+      <div className={styles.testimonial_ctr}>
+        <div className={styles.animation_strip}>
+          <div className={styles.card}>
+            <img
+              src="https://picsum.photos/200"
+              alt="profile pic"
+              className={styles.profile_pic}
+            />
+            <div className={styles.details}>
+              <h4 className={styles.name}>Jalaj Tiwari</h4>
+              <span className={styles.designation}>
+                Founder, eHawkers Marketing LLP
+              </span>
             </div>
-            <div className={styles.card}>
-              <img src="https://picsum.photos/id/257/200" alt="profile pic" className={styles.profile_pic} />
-              <div className={styles.details}>
-                <h4 className={styles.name}>Akshay Jain</h4>
-                <span className={styles.designation}>Fenton Chemicals</span>
-              </div>
-              <p className={styles.comments}>
-                AB Productions has transformed our brand image with their
-                exceptional design services. They are very Professional,
-                reliable, and creative. Highly recommend AB Productions.
-              </p>
+            <p className={styles.comments}>
+              AB Productions has transformed our brand image with their
+              exceptional design services. They are very Professional, reliable,
+              and creative. Highly recommend AB Productions.
+            </p>
+          </div>
+          <div className={styles.card}>
+            <img
+              src="https://picsum.photos/id/257/200"
+              alt="profile pic"
+              className={styles.profile_pic}
+            />
+            <div className={styles.details}>
+              <h4 className={styles.name}>Akshay Jain</h4>
+              <span className={styles.designation}>Fenton Chemicals</span>
             </div>
-
+            <p className={styles.comments}>
+              AB Productions has transformed our brand image with their
+              exceptional design services. They are very Professional, reliable,
+              and creative. Highly recommend AB Productions.
+            </p>
           </div>
         </div>
       </div>
