@@ -13,7 +13,7 @@ function Projects() {
       <Extra />
       <Gradline />
       <Footer />
-      <Gradline />
+      
     </>
   );
 }

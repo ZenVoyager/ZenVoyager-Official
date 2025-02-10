@@ -15,6 +15,7 @@ function About() {
       {/* <Studio /> */}
       <Gradline />
       <Footer />
+      
     </>
   );
 }

@@ -23,7 +23,7 @@ function Home() {
       <Extra />
       <Gradline />
       <Footer />
-      <Gradline />
+      
     </>
   );
 }
