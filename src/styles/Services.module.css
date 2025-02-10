@@ -66,6 +66,7 @@
   border-radius: 15px;
   width: 300px;
   height: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   /* border: 1px solid var(--white-t-20); */
   transition: transform 400ms ease-out;
 }
@@ -147,5 +148,21 @@
   .para_txt{
     font-size: 12px;
     max-width: 310px;
+  }
+  .card{
+    width: 250px;
+    height: auto;
+    aspect-ratio: 2/3;
+  }
+
+  .card_txt{
+    font-size: 32px;
+    line-height: 1;
+  }
+  .cta span{
+    font-size: 16px;
+  }
+  .cta svg{
+    height: 40px;
   }
 }

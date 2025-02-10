@@ -1,42 +1,45 @@
-.navbar_ctr{
-    width: 100%;
-    padding: 0 5rem;
+.navbar_ctr {
+  width: 100%;
+  padding: 0 5rem;
 }
-.navbar{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 20px;
+  margin-bottom: 3rem;
 }
-.navbar li a{
-    transition: all 300ms ease-in-out;
-    position: relative;
+.navbar li a {
+  transition: all 300ms ease-in-out;
+  position: relative;
 }
-.navbar li a::before{
-    content: '';
-    /* width: 120%; */
-    width: 0;
-    height: 2px;
-    position: absolute;
-    left: -10%;
-    bottom: -6px;
-    z-index: -1;
-    border-radius: 1px;
-    background-color: var(--primary-blue-ii);
-    box-shadow: 0px 1px 5px #47a9ff;
-    transition: all 300ms ease-in-out;
+.navbar li a::before {
+  content: "";
+  /* width: 120%; */
+  width: 0;
+  height: 2px;
+  position: absolute;
+  left: -10%;
+  bottom: -6px;
+  z-index: -1;
+  border-radius: 1px;
+  background-color: var(--primary-blue-ii);
+  box-shadow: 0px 1px 5px #47a9ff;
+  transition: all 300ms ease-in-out;
 }
-.navbar li a:hover{
-    color: var(--primary-blue-ii);
+.navbar li a:hover {
+  color: var(--primary-blue-ii);
 }
-.navbar li a:hover::before{
-    width: 120%;
+.navbar li a:hover::before {
+  width: 120%;
 }
-.active{
-    color: #47a9ff;
+.active {
+  color: #47a9ff;
 }
-.navbar li .active::before{
-    width: 120%;
+.navbar li .active::before {
+  width: 120%;
 }
 
 .project_cards_ctr {
@@ -44,12 +47,69 @@
   grid-template-columns: 1fr 1fr;
   gap: 5px;
   margin: 5rem;
+  justify-content: center;
+  justify-items: center;
+  position: relative;
+}
+.project_cards_ctr::before {
+  content: "Long press to view project overview, single tap to explore it in detail.";
+  max-width: 220px;
+  text-align: center;
+  font-family: poppins;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  font-size: 10px;
+  padding: 4px 16px;
+  align-items: center;
+  border-radius: 8px;
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  background: radial-gradient(
+    80% 130% at 0% 10%,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: float_animation 3s ease infinite;
+
+  display: none;
+}
+.project_cards_ctr::after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -100;
+
+  width: 0;
+  height: 0;
+  --size: 7px;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid white;
+  opacity: 15%;
+
+  animation: float_animation 3s ease infinite;
+  display: none;
+}
+
+@keyframes float_animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .project_card {
-  width: 640px;
-  height: 360px;
-
+  max-width: 100%;
+  /* height: 360px; */
+  aspect-ratio: 16/9;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -58,6 +118,13 @@
   padding: 50px;
   /* cursor: pointer; */
   border-radius: 5px;
+  /* border-radius: 12px; */
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .project_bg_img_ctr {
   position: absolute;
@@ -76,7 +143,7 @@
   width: 100%;
   height: 100%;
   /* background: rgba(5, 8, 14, 0.6);
-    backdrop-filter: blur(10px); */
+  backdrop-filter: blur(10px); */
   transition: all 500ms ease-in-out;
 }
 .project_bg_img {
@@ -107,6 +174,10 @@
 }
 .about_project {
   font-size: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 .jelly_tags {
   text-align: center;
@@ -136,4 +207,135 @@
 .project_card:hover .project_bg_img_ctr::before {
   background: rgba(5, 8, 14, 0.75);
   backdrop-filter: blur(10px);
+}
+
+@media (max-width: 800px) {
+  .navbar_ctr {
+    padding: 0 2rem;
+  }
+  .navbar li a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 550px) {
+  .navbar {
+    justify-content: flex-start;
+    gap: 50px;
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .project_cards_ctr {
+    margin: 1rem;
+  }
+}
+@media (max-width: 1180px) {
+  .project_card {
+    padding: 40px;
+  }
+}
+@media (max-width: 1040px) {
+  .project_card {
+    padding: 30px;
+  }
+  .project_heading {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .jelly_tags {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 925px) {
+  .about_project {
+    -webkit-line-clamp: 2;
+  }
+}
+@media (max-width: 780px) {
+  .project_cards_ctr {
+    grid-template-columns: none;
+    margin: 5rem;
+    /* gap: 20px; */
+    gap: 5rem;
+  }
+  .project_card {
+    padding: 30px;
+  }
+  .project_heading {
+    font-size: 28px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .jelly_tags {
+    flex-wrap: wrap;
+  }
+  .jelly_tags li {
+    font-size: 10px;
+    padding: 4px 16px;
+  }
+  .about_project {
+    font-size: 12px;
+    -webkit-line-clamp: 3;
+  }
+}
+@media (max-width: 650px) {
+  .project_heading {
+    font-weight: 500;
+  }
+  .about_project {
+    font-size: 10px;
+  }
+}
+@media (max-width: 575px) {
+  .project_heading {
+    font-size: 24px;
+  }
+  .project_cards_ctr::after,
+  .project_cards_ctr::before {
+    display: flex;
+  }
+}
+@media (max-width: 550px) {
+  .project_cards_ctr {
+    grid-template-columns: none;
+    margin: 2rem;
+    /* gap: 20px; */
+    gap: 2rem;
+  }
+
+  .about_project {
+    -webkit-line-clamp: 3;
+  }
+}
+@media (max-width: 430px) {
+  .project_cards_ctr {
+    grid-template-columns: none;
+    margin: 0;
+    /* gap: 20px; */
+    gap: 1rem;
+  }
+  .project_card {
+    border-radius: 0;
+  }
+
+  .project_card {
+    padding: 20px;
+  }
+  .project_heading {
+    font-size: 18px;
+    /* line-height: 1.5; */
+    margin-bottom: 10px;
+  }
+
+  .jelly_tags li {
+    font-size: 9px;
+    padding: 3px 12px;
+  }
+}
+@media (max-width: 320px) {
+  .project_card {
+    padding: 10px;
+  }
 }

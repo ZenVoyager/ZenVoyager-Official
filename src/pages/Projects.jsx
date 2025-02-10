@@ -1,21 +1,21 @@
-import React from 'react'
-import Landing from '../components/project/Landing'
-import Gallary from '../components/project/Gallary'
-import Extra from '../components/Extra'
-import Gradline from '../components/Gradline'
-import Footer from '../components/Footer'
+import React from "react";
+import Landing from "../components/project/Landing";
+import Gallary from "../components/project/Gallary";
+import Extra from "../components/Extra";
+import Gradline from "../components/Gradline";
+import Footer from "../components/Footer";
 
 function Projects() {
   return (
     <>
-      <Landing/>
+      <Landing />
       <Gallary />
       <Extra />
       <Gradline />
       <Footer />
       <Gradline />
     </>
-  )
+  );
 }
 
-export default Projects
+export default Projects;
