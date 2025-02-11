@@ -51,9 +51,9 @@
   animation: leadsAnimation 60s linear infinite;
 }
 
-.slider:hover .slider_item {
+/* .slider:hover .slider_item {
   animation-play-state: paused;
-}
+} */
 
 @keyframes leadsAnimation {
   to {
