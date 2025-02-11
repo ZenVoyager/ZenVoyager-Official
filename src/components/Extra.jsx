@@ -18,7 +18,7 @@ function Extra() {
           Get in touch with us today to discuss your project needs.
         </p>
         <div className={styles.btn_ctr}>
-          <Link className={styles.btn_p}>Let's Discuss</Link>
+          <Link to="/contact" className={styles.btn_p}>Let's Discuss</Link>
         </div>
         
       </div>

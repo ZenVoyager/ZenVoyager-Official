@@ -41,7 +41,7 @@ function Testimonials() {
             the difference AB Productions can make for your business.
           </p>
           <div className={styles.btn_ctr}>
-            <Link className={styles.btn_s}>Get a Quote {arrow}</Link>
+            <Link to="/contact" className={styles.btn_s}>Get a Quote {arrow}</Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import ab_productions_logo from "../assets/ab_productions_logo.svg";
@@ -6,6 +6,16 @@ import styles from "../styles/Navbar.module.css";
 import "../styles/Navbar.css";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav>
       <div className={styles.navbar}>
@@ -32,7 +42,7 @@ function Navbar() {
 
         <div className={styles.menu_toggle}>
           <label className={styles.hamburger}>
-            <input type="checkbox" />
+            <input onClick={toggleMenu} type="checkbox" />
             <svg viewBox="0 0 32 32">
               <path
                 className={`${styles.line} ${styles.line_top_bottom}`}
@@ -43,6 +53,25 @@ function Navbar() {
           </label>
         </div>
       </div>
+      <ul
+        className={`${styles.nav_links_mob} ${
+          isMenuOpen ? "active" : ""
+        } nav_links_mob`}
+        id="nav_menu_links_mob"
+      >
+        <li onClick={closeMenu}>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li onClick={closeMenu}>
+          <NavLink to="/projects">Projects</NavLink>
+        </li>
+        <li onClick={closeMenu}>
+          <NavLink to="/about">Culture</NavLink>
+        </li>
+        <li onClick={closeMenu}>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+      </ul>
     </nav>
   );
 }

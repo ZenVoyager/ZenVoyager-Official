@@ -22,7 +22,7 @@ function Landing() {
         </h1>
       </div>
       <div className={styles.btn_ctr}>
-        <Link className={styles.btn_p}>Let's Discuss</Link>
+        <Link to="/contact" className={styles.btn_p}>Let's Discuss</Link>
       </div>
       <div className={styles.social_ctr}>
         <span className={`txt-s`}>Connect with us</span>

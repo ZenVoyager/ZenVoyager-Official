@@ -2,6 +2,10 @@
   color: var(--white);
   transition: all 300ms ease-in-out;
 }
+.nav_links_mob li a {
+  color: var(--white);
+  transition: all 300ms ease-in-out;
+}
 .nav_links li a.active {
   color: var(--primary-blue-ii);
   /* font-weight: 500; */
@@ -9,4 +13,19 @@
   /* font-family: 'playfair';
   font-style: italic;
   font-size: 16px; */
+}
+.nav_links_mob li a.active {
+  color: var(--primary-blue-ii);
+  /* font-weight: 500; */
+  text-shadow: 0 0 1px #6cbaff;
+  /* font-family: 'playfair';
+  font-style: italic;
+  font-size: 16px; */
+}
+.nav_links_mob.active{
+  opacity: 1;
+  transform: translateX(0);
+}
+.nav_links_mob li a{
+  font-size: 18px;
 }

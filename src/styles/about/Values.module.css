@@ -2,11 +2,16 @@
   min-height: 100vh;
   width: 100%;
   padding: 0 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .heading_ctr {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5rem;
+  gap: 2rem;
 }
 .heading {
   display: flex;
@@ -44,7 +49,8 @@
 .cards_strip{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 50px;
 }
 .card {
@@ -99,4 +105,41 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .heading h3{
+    font-size: 32px;
+  }
+  .txt_content{
+    font-size: 12px;
+    max-width: 320px;
+  }
+}
+@media (max-width: 550px) {
+  .values_section{
+    padding: 5rem 2rem;
+  }
+  .heading_top,.heading_bottom{
+    gap: 28px;
+  }
+}
+@media (max-width: 500px) {
+  .card{
+    padding: 40px 35px;
+  }
+  .card_heading{
+    font-size: 18px;
+  }
+  .card p{
+    font-size: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .heading_ctr{
+    flex-wrap: wrap;
+  }
+  .values_section{
+    padding: 5rem 1.5rem;
+  }
 }

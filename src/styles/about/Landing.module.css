@@ -37,3 +37,47 @@
   font-size: 32px;
   font-weight: 500;
 }
+
+@media (max-width: 620px) {
+  .txt{
+    font-size: 28px;
+  }
+  .heading h2{
+    font-size: 24px;
+  }
+  .heading svg{
+    width: 50px;
+  }
+}
+@media (max-width: 550px) {
+  .landing_section{
+    padding: 2rem;
+  }
+}
+@media (max-width: 425px) {
+  .landing_section{
+    height: 90vh;
+  }
+  .txt{
+    font-size: 24px;
+  }
+  .heading h2{
+    font-size: 22px;
+  }
+  .heading svg{
+    width: 45px;
+  }
+}
+@media (max-width: 400px) {
+  .landing_section{
+    padding: 0 1.5rem;
+  }
+}
+@media (max-width: 350px) {
+  .txt_content{
+    width: 200px;
+  }
+  .txt{
+    font-size: 28px;
+  }
+}

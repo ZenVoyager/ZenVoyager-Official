@@ -61,3 +61,19 @@
 .step p{
     font-size: 12px;
 }
+
+@media (max-width: 940px) {
+  .workflow_section{
+    flex-wrap: wrap;
+    gap: 5rem;
+    margin: 5rem 0;
+  }
+  .workflow_section{
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 650px) {
+  .txt{
+    font-size: 28px;
+  }
+}

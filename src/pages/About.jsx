@@ -5,6 +5,7 @@ import Workflow from "../components/about/Workflow";
 import Studio from "../components/about/Studio";
 import Gradline from "../components/Gradline"
 import Footer from "../components/Footer"
+import Extra from "../components/Extra";
 
 function About() {
   return (
@@ -13,6 +14,7 @@ function About() {
       <Values />
       <Workflow />
       {/* <Studio /> */}
+      <Extra />
       <Gradline />
       <Footer />
       
