@@ -7,12 +7,14 @@ import "../styles/Navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const inputBtn = document.getElementById("input-btn");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
+    inputBtn.checked = !inputBtn.checked
     setIsMenuOpen(false);
   };
 
@@ -42,7 +44,7 @@ function Navbar() {
 
         <div className={styles.menu_toggle}>
           <label className={styles.hamburger}>
-            <input onClick={toggleMenu} type="checkbox" />
+            <input id="input-btn" onClick={toggleMenu} type="checkbox" />
             <svg viewBox="0 0 32 32">
               <path
                 className={`${styles.line} ${styles.line_top_bottom}`}
