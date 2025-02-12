@@ -7,6 +7,7 @@ function Landing() {
   return (
     <section className={styles.landing_section}>
       <div className={styles.c1}>
+        <div></div>
         <div className={styles.txt_content}>
           <h3 className={styles.txt}>
             <span className={`playfair italic`}>Innovative Projects</span><br></br>
@@ -18,6 +19,7 @@ function Landing() {
             {arrow_down}
         </div>
       </div>
+      
       <div className={styles.c2}>
         <div className={styles.media_ctr}></div>
       </div>
