@@ -107,109 +107,6 @@
   }
 }
 
-.project_card {
-  max-width: 100%;
-  /* height: 360px; */
-  aspect-ratio: 16/9;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: space-between;
-  overflow: hidden;
-  padding: 50px;
-  /* cursor: pointer; */
-  border-radius: 5px;
-  /* border-radius: 12px; */
-
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.project_bg_img_ctr {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  /* border-radius: 5px; */
-}
-.project_bg_img_ctr::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background: rgba(5, 8, 14, 0.6);
-  backdrop-filter: blur(10px); */
-  transition: all 500ms ease-in-out;
-}
-.project_bg_img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.project_txt {
-  opacity: 0;
-  transition: opacity 500ms ease-in-out;
-}
-.project_heading {
-  --radical-x: 50%;
-  --radical-y: 80%;
-  font-size: 36px;
-  font-weight: 400;
-
-  -webkit-text-stroke-width: 0.15px;
-  -webkit-text-stroke-color: #fff;
-  background: radial-gradient(
-    var(--radical-x) var(--radical-y) at 10% 50%,
-    #fff 0%,
-    rgba(255, 255, 255, 0.4) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.about_project {
-  font-size: 12px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-.jelly_tags {
-  text-align: center;
-  display: flex;
-  gap: 10px;
-  font-size: var(--bullet-fs);
-  opacity: 0;
-  transition: opacity 500ms ease-in-out;
-}
-.jelly_tags li {
-  display: flex;
-  padding: 4px 18px;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: radial-gradient(
-    80% 130% at 0% 10%,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-}
-
-.project_card:hover .project_txt,
-.project_card:hover .jelly_tags {
-  opacity: 1;
-}
-.project_card:hover .project_bg_img_ctr::before {
-  background: rgba(5, 8, 14, 0.75);
-  backdrop-filter: blur(10px);
-}
-
 @media (max-width: 800px) {
   .navbar_ctr {
     padding: 0 2rem;
@@ -231,29 +128,7 @@
     margin: 1rem;
   }
 }
-@media (max-width: 1180px) {
-  .project_card {
-    padding: 40px;
-  }
-}
-@media (max-width: 1040px) {
-  .project_card {
-    padding: 30px;
-  }
-  .project_heading {
-    font-size: 24px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  .jelly_tags {
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 925px) {
-  .about_project {
-    -webkit-line-clamp: 2;
-  }
-}
+
 @media (max-width: 780px) {
   .project_cards_ctr {
     grid-template-columns: none;
@@ -261,38 +136,9 @@
     /* gap: 20px; */
     gap: 5rem;
   }
-  .project_card {
-    padding: 30px;
-  }
-  .project_heading {
-    font-size: 28px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  .jelly_tags {
-    flex-wrap: wrap;
-  }
-  .jelly_tags li {
-    font-size: 10px;
-    padding: 4px 16px;
-  }
-  .about_project {
-    font-size: 12px;
-    -webkit-line-clamp: 3;
-  }
 }
-@media (max-width: 650px) {
-  .project_heading {
-    font-weight: 500;
-  }
-  .about_project {
-    font-size: 10px;
-  }
-}
+
 @media (max-width: 575px) {
-  .project_heading {
-    font-size: 24px;
-  }
   .project_cards_ctr::after,
   .project_cards_ctr::before {
     display: flex;
@@ -305,10 +151,6 @@
     /* gap: 20px; */
     gap: 2rem;
   }
-
-  .about_project {
-    -webkit-line-clamp: 3;
-  }
 }
 @media (max-width: 430px) {
   .project_cards_ctr {
@@ -316,27 +158,5 @@
     margin: 0;
     /* gap: 20px; */
     gap: 1rem;
-  }
-  .project_card {
-    border-radius: 0;
-  }
-
-  .project_card {
-    padding: 20px;
-  }
-  .project_heading {
-    font-size: 18px;
-    /* line-height: 1.5; */
-    margin-bottom: 10px;
-  }
-
-  .jelly_tags li {
-    font-size: 9px;
-    padding: 3px 12px;
-  }
-}
-@media (max-width: 320px) {
-  .project_card {
-    padding: 10px;
   }
 }
