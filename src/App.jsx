@@ -10,6 +10,7 @@ import Error from "./pages/Error";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import ProjectDetails from "./pages/ProjectDetails";
+import ServiceDetails from "./pages/ServiceDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/service/:id" element={<ServiceDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/project" element={<Projects />} />
         <Route path="/project/:id" element={<ProjectDetails />} />

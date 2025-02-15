@@ -23,6 +23,23 @@ function Services() {
     </svg>
   );
 
+  const services = [{
+    id: "code",
+    heading: "Coding & Development",
+    body: "lorem ipsum"
+  },
+  {
+    id: "editing",
+    heading: "Video Editing",
+    body: "lorem ipsum"
+  },
+  {
+    id: "graphic",
+    heading: "Graphic Designing",
+    body: "lorem ipsum"
+  }
+]
+
   return (
     <section className={styles.services_section}>
       <div className={styles.heading_ctr}>
@@ -37,25 +54,25 @@ function Services() {
 
       <div className={styles.cards_ctr}>
         <div className={styles.scroller}>
-          <Link>
+          <Link to={`/service/${services[0].id}`}>
             <div className={styles.card}>
               <img src={coding_dev} alt="Coding & Development" />
             </div>
           </Link>
 
-          <Link>
+          <Link to={`/service/${services[1].id}`}>
             <div className={styles.card}>
               <img src={video_editing} alt="Videography & Editing" />
             </div>
           </Link>
 
-          <Link>
+          <Link to={`/service/${services[2].id}`}>
             <div className={styles.card}>
               <img src={graphic_design} alt="Graphic Designing" />
             </div>
           </Link>
 
-          <Link>
+          <Link to="/contact">
             <div className={`${styles.card} ${styles.cta_card}`}>
               <div className={styles.card_txt}>
                 <span>Want</span>
