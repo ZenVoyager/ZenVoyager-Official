@@ -157,10 +157,8 @@
 }
 @media (max-width: 965px) {
   .landing_section {
-    gap: 1rem;
-  }
-  .c1 {
-    gap: 5rem;
+    gap: 2rem;
+    padding: 2rem;
   }
   .heading {
     font-size: 24px;
@@ -170,10 +168,15 @@
   .landing_section {
     grid-template-columns: none;
     padding: 10rem 5rem;
+    gap: 5rem;
   }
   .c1,
   .c2 {
     flex: auto;
+  }
+  .btn_p{
+    font-size: 12px;
+    padding: 10px 20px;
   }
 }
 @media (max-width: 550px) {
@@ -181,8 +184,19 @@
     padding: 7rem 2rem;
   }
 }
+@media (max-width: 375px) {
+  .heading {
+    font-size: 18px;
+  }
+  .search_box input{
+    padding: 10px 20px;
+  }
+}
 @media (max-width: 355px) {
   .heading {
     font-size: 18px;
+  }
+  .search_box input{
+    padding: 10px 15px;
   }
 }
