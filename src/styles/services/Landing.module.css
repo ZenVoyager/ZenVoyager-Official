@@ -183,6 +183,9 @@
   .landing_section {
     padding: 7rem 2rem;
   }
+  .btn_p{
+    right: 2px;
+  }
 }
 @media (max-width: 375px) {
   .heading {
