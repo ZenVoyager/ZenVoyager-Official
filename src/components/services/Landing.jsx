@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "../../styles/services/Landing.module.css"
 import {coding} from "../../assets/services/icons"
+import { mouse } from '../../assets/services/icons'
 
 function Landing() {
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Landing from "../components/services/Landing";
 import Subcategory from "../components/services/Subcategory";
+import Gradline from "../components/Gradline"
 
 const services = [
   {
@@ -29,6 +30,7 @@ function ServiceDetails() {
   return (
     <>
       <Landing />
+      <Gradline />
       <Subcategory />
     </>
   );
