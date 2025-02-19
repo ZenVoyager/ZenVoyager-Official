@@ -1,0 +1,312 @@
+{
+  "services": [
+    {
+      "id": "code",
+
+      "icon": "link for icon",
+      "showreel": "link for show reel",
+      "heading": "Coding & Development",
+      "description": "At AB Productions, we deliver top-notch websites, mobile apps, and software solutions. Our expert team uses the latest technologies to create robust and scalable products, ensuring your digital vision comes to life with precision and innovation.",
+      "subcategories": [
+        {
+          "id": 1,
+          "number": "01.",
+          "title": "UI/UX Design",
+          "description": "Creating Visually Stunning & User-Friendly Interfaces",
+          "tags": [
+            "Website",
+            "Portfolio",
+            "E-Commerce",
+            "Web Apps",
+            "Mobile Apps",
+            "CRM System",
+            "Admin Panel",
+            "Dashboard",
+            "Software"
+          ]
+        },
+        {
+          "id": 2,
+          "number": "02.",
+          "title": "Web Development",
+          "description": "Building Robust and Scalable Web Solutions",
+          "tags": [
+            "Full Stack Websites",
+            "Portfolio",
+            "E-Commerce",
+            "Web Apps",
+            "Mobile Apps",
+            "CRM System",
+            "Admin Panel"
+          ]
+        },
+        {
+          "id": 3,
+          "number": "03.",
+          "title": "Mobile Application Development",
+          "description": "Creating High-Performance Mobile Apps for Android and iOS",
+          "tags": ["Android Apps", "iOS Apps"]
+        },
+        {
+          "id": 4,
+          "number": "04.",
+          "title": "Software Development",
+          "description": "Delivering Custom Software Solutions for Your Business Needs",
+          "tags": ["Windows Software"]
+        },
+        {
+          "id": 5,
+          "number": "05.",
+          "title": "Projects and Academic Support",
+          "description": "Supporting Students and Scholars with Expert Coding Projects",
+          "tags": [
+            "Projects",
+            "C++",
+            "Java",
+            "Python",
+            "AI & ML",
+            "OpenCV",
+            "Android"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphic",
+
+      "icon": "link for icon",
+      "showreel": "link for show reel",
+      "heading": "Graphic Design",
+      "description": "At AB Productions, we craft visually stunning designs that captivate and communicate. From logos to marketing materials, our creative team blends artistry with strategy to create compelling graphics that elevate your brand and leave a lasting impression.",
+      "subcategories": [
+        {
+          "id": 1,
+          "number": "01.",
+          "title": "UI/UX Design",
+          "description": "Creating Visually Stunning & User-Friendly Interfaces",
+          "tags": [
+            "Website",
+            "Portfolio",
+            "E-Commerce",
+            "Web Apps",
+            "Mobile Apps",
+            "CRM System",
+            "Admin Panel",
+            "Dashboard",
+            "Software"
+          ]
+        },
+        {
+          "id": 2,
+          "number": "02.",
+          "title": "Branding",
+          "description": "Creating Identities, Not Just Logos",
+          "tags": [
+            "Logo",
+            "Brand Identity",
+            "Rebranding",
+            "Brand Guidelines",
+            "Business Cards",
+            "ID Cards"
+          ]
+        },
+        {
+          "id": 3,
+          "number": "03.",
+          "title": "Logo Design",
+          "description": "Unique, memorable, and versatile",
+          "tags": []
+        },
+        {
+          "id": 4,
+          "number": "04.",
+          "title": "Social Media",
+          "description": "Turning Feeds into Eye-Catching Visuals",
+          "tags": [
+            "Instagram",
+            "LinkedIn",
+            "Facebook",
+            "Reels",
+            "Posts",
+            "Stories",
+            "Meta Ads",
+            "YouTube",
+            "Thumbnail"
+          ]
+        },
+        {
+          "id": 5,
+          "number": "05.",
+          "title": "Posters and Banners",
+          "description": "Powerful Designs That Demand Attention",
+          "tags": [
+            "Poster",
+            "Banner",
+            "Hoarding",
+            "Wall Art",
+            "Creatives",
+            "Printable",
+            "Digital"
+          ]
+        },
+        {
+          "id": 6,
+          "number": "06.",
+          "title": "Printables",
+          "description": "Designs That Speak for Your Brand",
+          "tags": [
+            "Banner",
+            "Poster",
+            "Business Cards",
+            "Visiting Cards",
+            "ID Cards",
+            "Hoardings",
+            "Flyers",
+            "Leaflet",
+            "Many More"
+          ]
+        },
+        {
+          "id": 7,
+          "number": "07.",
+          "title": "Illustrations",
+          "description": "Our custom illustrations bring ideas to life, making your brand unique",
+          "tags": []
+        },
+        {
+          "id": 8,
+          "number": "08.",
+          "title": "Concept Art",
+          "description": "Transforming ideas into creative visuals",
+          "tags": []
+        },
+        {
+          "id": 9,
+          "number": "09.",
+          "title": "3D Art and Scenes",
+          "description": "Adding Depth & Dimension to Creativity",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "editing",
+
+      "icon": "link for icon",
+      "showreel": "link for show reel",
+      "heading": "Videography & Editing",
+      "description": "At AB Productions, we bring stories to life through stunning visuals and seamless editing. Whether it’s promotional videos, corporate films, or social media content, our expert team crafts high-quality videos that captivate, engage, and inspire your audience.",
+      "subcategories": [
+        {
+          "id": 1,
+          "number": "01.",
+          "title": "Event Videography",
+          "description": "Documenting Your Special Moments with Precision and Creativity",
+          "tags": [
+            "Weddings",
+            "Personal Events",
+            "Product Launches",
+            "Live Performances",
+            "Conference"
+          ]
+        },
+        {
+          "id": 2,
+          "number": "02.",
+          "title": "Video Editing",
+          "description": "Bringing Your Footage to Life with Creative Precision",
+          "tags": ["Color Grading", "Transitions & Effects", "Final Cut"]
+        },
+        {
+          "id": 3,
+          "number": "03.",
+          "title": "YouTube Video Production",
+          "description": "Your YouTube Journey Starts Here",
+          "tags": [
+            "Video Creation",
+            "Intro & Outro",
+            "Channel Branding",
+            "Custom Thumbnails"
+          ]
+        },
+        {
+          "id": 4,
+          "number": "04.",
+          "title": "Social Media",
+          "description": "Turning Feeds into Eye-Catching Visuals",
+          "tags": [
+            "Instagram",
+            "LinkedIn",
+            "Facebook",
+            "Reels",
+            "Posts",
+            "Stories",
+            "Meta Ads",
+            "YouTube",
+            "Thumbnail"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conference",
+
+      "icon": "link for icon",
+      "showreel": "link for show reel",
+      "heading": "Talks & Conferences",
+      "description": "At AB Productions, we provide a dynamic platform for thought leaders, innovators, and experts to share their ideas through engaging talks and conferences. Whether it's inspiring keynote sessions, industry discussions, or knowledge-sharing events, we curate, produce, and deliver impactful experiences that spark meaningful conversations and drive change.",
+      "subcategories": [
+        {
+          "id": 1,
+          "number": "01.",
+          "title": "Bootcamps",
+          "description": "Intensive Learning for Real-World Impact",
+          "tags": [
+            "UI/UX Design",
+            "Web Dev",
+            "App Dev",
+            "Graphic Design",
+            "Coding"
+          ]
+        },
+        {
+          "id": 2,
+          "number": "02.",
+          "title": "College Talks",
+          "description": "Bridging the Gap Between Academia & Industry",
+          "tags": [
+            "Career Guidance",
+            "Industry Trends",
+            "Entrepreneurship",
+            "Portfolio Building"
+          ]
+        },
+        {
+          "id": 3,
+          "number": "03.",
+          "title": "Tech Events",
+          "description": "Fueling Innovation & Networking",
+          "tags": [
+            "Tech Meetups & Hackathons",
+            "Product Showcases",
+            "Networking Sessions",
+            "Panel Discussions"
+          ]
+        },
+        {
+          "id": 4,
+          "number": "04.",
+          "title": "Skill Development Programs",
+          "description": "Future-Proof Your Career with In-Demand Skills",
+          "tags": [
+            "Corporate Training",
+            "Freelancing & Business Growth",
+            "Soft Skills Training",
+            "Programming",
+            "AI & Machine Learning"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,36 +2,20 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Landing from "../components/services/Landing";
 import Subcategory from "../components/services/Subcategory";
-import Gradline from "../components/Gradline"
-
-const services = [
-  {
-    id: "code",
-    heading: "Coding & Development",
-    body: "lorem ipsum",
-  },
-  {
-    id: "editing",
-    heading: "Video Editing",
-    body: "lorem ipsum",
-  },
-  {
-    id: "graphic",
-    heading: "Graphic Designing",
-    body: "lorem ipsum",
-  },
-];
+import Gradline from "../components/Gradline";
+import services from "../data/services.json";
 
 function ServiceDetails() {
   const { id } = useParams();
-  console.log(id);
-  const service = services.find((service) => service.id === parseInt(id));
+  // console.log(id);
+  // const service = services.services.find((service) => service.id === parseInt(id));
+  const service = services.services.find((service) => service.id === id);
 
   return (
     <>
-      <Landing />
+      <Landing service={service} />
       <Gradline />
-      <Subcategory />
+      <Subcategory subcategories={service.subcategories} />
     </>
   );
 }

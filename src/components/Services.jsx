@@ -6,6 +6,7 @@ import video_editing from "../assets/services/video_editing.webp";
 import graphic_design from "../assets/services/graphic_design.webp";
 import { Link } from "react-router-dom";
 // import more_service from "../assets/services/coding_dev.webp";
+import services from "../data/services.json"
 
 function Services() {
   const arrow = (
@@ -23,22 +24,8 @@ function Services() {
     </svg>
   );
 
-  const services = [{
-    id: "code",
-    heading: "Coding & Development",
-    body: "lorem ipsum"
-  },
-  {
-    id: "editing",
-    heading: "Video Editing",
-    body: "lorem ipsum"
-  },
-  {
-    id: "graphic",
-    heading: "Graphic Designing",
-    body: "lorem ipsum"
-  }
-]
+  // console.log(services.services);
+  
 
   return (
     <section className={styles.services_section}>
@@ -54,19 +41,19 @@ function Services() {
 
       <div className={styles.cards_ctr}>
         <div className={styles.scroller}>
-          <Link to={`/service/${services[0].id}`}>
+          <Link to={`/service/${services.services[0].id}`}>
             <div className={styles.card}>
               <img src={coding_dev} alt="Coding & Development" />
             </div>
           </Link>
 
-          <Link to={`/service/${services[1].id}`}>
+          <Link to={`/service/${services.services[1].id}`}>
             <div className={styles.card}>
               <img src={video_editing} alt="Videography & Editing" />
             </div>
           </Link>
 
-          <Link to={`/service/${services[2].id}`}>
+          <Link to={`/service/${services.services[2].id}`}>
             <div className={styles.card}>
               <img src={graphic_design} alt="Graphic Designing" />
             </div>
@@ -79,7 +66,6 @@ function Services() {
                 <span className={styles.bold_txt}>ANYTHING</span>
                 <span>Else</span>
               </div>
-              {/* <img src={more_service} alt="Explore more options" /> */}
               <div className={styles.cta}>
                 <span>Let's Discuss</span>
                 {arrow}
