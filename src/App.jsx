@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import ProjectDetails from "./pages/ProjectDetails";
 import ServiceDetails from "./pages/ServiceDetails";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:id" element={<ProjectDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin/*" element={<Admin />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </>
