@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { db } from "../Firebase";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 // Create Context
