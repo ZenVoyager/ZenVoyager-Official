@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from "../../styles/admin/Signin.module.css";
+import { AuthContext } from "../../context/AuthContext";
 
 function Signin() {
+  const { login } = useContext(AuthContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Email:", email, "Password:", password);
+    // console.log("Email:", email, "Password:", password);
+    login(email, password); // Call login function
   };
 
   return (
@@ -17,10 +21,10 @@ function Signin() {
         <form onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
             <input
-              type="email"
+              type="string"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              placeholder="User ID"
               required
             />
           </div>
