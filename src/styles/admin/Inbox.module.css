@@ -1,0 +1,76 @@
+.inboxContainer {
+    background: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .loading, .noMessages {
+    text-align: center;
+    font-size: 16px;
+    color: #bbb;
+  }
+  
+  .messagesList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .messageCard {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease;
+  }
+  
+  .messageCard:hover {
+    background: #292929;
+  }
+  
+  .messageInfo {
+    flex-grow: 1;
+  }
+  
+  .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .email, .phone, .interest {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .message {
+    font-size: 15px;
+    color: #ddd;
+    margin-top: 5px;
+  }
+  
+  .deleteBtn {
+    background: #ff4757;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .deleteBtn:hover {
+    background: #ff2235;
+  }
+  
