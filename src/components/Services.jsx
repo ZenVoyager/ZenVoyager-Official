@@ -47,13 +47,13 @@ function Services() {
             </div>
           </Link>
 
-          <Link to={`/service/${services.services[1].id}`}>
+          <Link to={`/service/${services.services[2].id}`}>
             <div className={styles.card}>
               <img src={video_editing} alt="Videography & Editing" />
             </div>
           </Link>
 
-          <Link to={`/service/${services.services[2].id}`}>
+          <Link to={`/service/${services.services[1].id}`}>
             <div className={styles.card}>
               <img src={graphic_design} alt="Graphic Designing" />
             </div>

@@ -1,0 +1,216 @@
+.container {
+  display: flex;
+  height: 100vh; /* Full screen height */
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Left & Right Sections */
+.leftSection,
+.rightSection {
+  /* flex: 1; */
+  overflow-y: auto; /* Allows individual scrolling */
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+/* Right Section Styling */
+.rightSection {
+  width: 60%;
+  background-color: #0000;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.rightSection::-webkit-scrollbar {
+  display: none;
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+}
+
+/* Left Section Styling */
+.leftSection {
+  width: 40%;
+  background-color: #0000;
+  padding: 40px;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.leftSection::-webkit-scrollbar {
+  display: none;
+}
+
+.heading {
+  --radical-x: 50%;
+  --radical-y: 90%;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: #fff;
+  font-size: 36px;
+  font-weight: 400;
+  /* max-width: 300px; */
+  line-height: 1.2;
+  background: radial-gradient(
+    var(--radical-x) var(--radical-y) at 15% 50%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.txt {
+  font-size: 14px;
+  font-weight: 300;
+  max-width: 550px;
+}
+.jelly_tags {
+  text-align: center;
+  display: flex;
+  /* justify-content: center; */
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  /* background-color: red; */
+  font-size: var(--bullet-fs);
+}
+.jelly_tags li {
+  display: flex;
+  padding: 4px 18px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: radial-gradient(
+    80% 130% at 0% 10%,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+.btn_s {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  position: relative;
+  display: flex;
+  padding: 5px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  /* font-size: 14px; */
+  /* border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(140deg, #fff 0%, #ffffff01 90%); */
+
+  border-radius: 32px;
+  background: radial-gradient(
+      90% 160% at -20% -30%,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    ),
+    #070b0e;
+  transition: box-shadow 500ms ease-in-out;
+}
+.btn_s::after {
+  content: "";
+  position: absolute;
+
+  width: 101%;
+  height: 104%;
+  border-radius: 32px;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    #ffffff01 90%
+  );
+  z-index: -1;
+  transition: box-shadow 500ms ease-in-out;
+}
+.btn_s:hover {
+  z-index: 0;
+  box-shadow: -41px 0 70px #ffffff4f, 40px 0 70px #45454566;
+}
+.fixedTxt {
+  margin-top: 10rem;
+  /* margin-bottom: -25px; */
+  text-align: center;
+  --radical-x: 30%;
+  --radical-y: 200%;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.5);
+  font-size: 45px;
+  font-weight: 400;
+  /* max-width: 300px; */
+  line-height: 1.2;
+  background: radial-gradient(
+    var(--radical-x) var(--radical-y) at 50% 50%,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 📌 Responsive Design for Mobile */
+@media screen and (max-width: 1150px) {
+    .leftSection,.rightSection{
+        width: auto;
+        flex: 1;
+    }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto; /* Adjust height for mobile */
+  }
+  .leftSection {
+    margin: 5rem;
+    margin-top: 10rem;
+  }
+  /* .rightSection {
+    height: 40vh; 
+  } */
+
+  .leftSection {
+    height: auto;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .leftSection {
+    margin: 1rem;
+    margin-top: 10rem;
+  }
+  .heading {
+    font-size: 32px;
+  }
+  .fixedTxt {
+    font-size: 45px;
+  }
+  .jelly_tags {
+    font-size: 10px;
+  }
+  .txt {
+    font-size: 12px;
+  }
+  .btn_s {
+    padding: 4px 25px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .leftSection {
+    margin: 0.5rem;
+    margin-top: 10rem;
+  }
+}
