@@ -105,3 +105,28 @@ export const arrow_down = (
     />
   </svg>
 );
+
+export const arrow = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="19"
+    viewBox="0 0 18 19"
+    fill="none"
+  >
+    <path
+      d="M2.25 9.5H15.375"
+      stroke="white"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10.5 14.75L15.75 9.5L10.5 4.25"
+      stroke="white"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);

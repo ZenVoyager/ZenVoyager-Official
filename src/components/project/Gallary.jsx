@@ -1,44 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/project/Gallary.module.css";
-
-import project_img from "../../assets/projects/fenton_website_ui.webp";
-import project_img_demo from "../../assets/projects/demo_website.png";
-import { Link } from "react-router-dom";
-
+import supabase from "../../utils/supabase";
 import ProjectCard from "./ProjectCard";
-
-const projects = [
-  {
-    id: 1,
-    title: "Fenton Chemicals",
-    category: "Technology",
-    img: project_img,
-  },
-  { id: 2, title: "Demo Website", category: "Graphics", img: project_img_demo },
-  {
-    id: 3,
-    title: "Sample Video Project",
-    category: "Video Editing",
-    img: project_img,
-  },
-  {
-    id: 4,
-    title: "Brand Identity",
-    category: "Branding",
-    img: project_img_demo,
-  },
-];
 
 const categories = [
   "All Projects",
-  "Technology",
-  "Graphics",
+  "Coding and Development",
+  "Graphic Design",
   "Video Editing",
-  "Branding",
 ];
 
 function Gallary() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      const { data, error } = await supabase.from("projects").select();
+      if (error) {
+        console.error("Error fetching projects:", error);
+      } else {
+        setProjects(data);
+      }
+      setLoading(false);
+    }
+    fetchProjects();
+  }, []);
 
   const filteredProjects =
     activeCategory === "All Projects"
@@ -62,11 +50,19 @@ function Gallary() {
         </ul>
       </div>
 
-      <div className={styles.project_cards_ctr}>
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      {loading ? (
+        <p className={styles.loading}>Loading projects...</p>
+      ) : (
+        <div className={styles.project_cards_ctr}>
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))
+          ) : (
+            <p className={styles.no_projects}>No projects found.</p>
+          )}
+        </div>
+      )}
     </section>
   );
 }

@@ -5,6 +5,7 @@ import Inbox from "./Inbox";
 import Services from "./Services";
 import Projects from "./Projects";
 import Reviews from "./Reviews";
+import NewProject from "./NewProject";
 
 function Dashboard() {
   return (
@@ -26,7 +27,7 @@ function Dashboard() {
           <Route path="/" element={<h2>Welcome to the Admin Dashboard</h2>} />
           <Route path="inbox" element={<Inbox />} />
           <Route path="services" element={<Services />} />
-          <Route path="projects" element={<Projects />} />
+          <Route path="projects" element={<NewProject />} />
           <Route path="reviews" element={<Reviews />} />
         </Routes>
       </div>

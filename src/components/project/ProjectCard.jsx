@@ -4,23 +4,27 @@ import { Link } from "react-router-dom";
 
 function ProjectCard({ project }) {
   return (
-    <Link to={`/project/${project.id}`}>
-      <div key={project.id} className={styles.project_card}>
+    <Link to={`/project/${project.id}`} className={styles.project_link}>
+      <div className={styles.project_card}>
         <div className={styles.project_txt}>
-          <h3 className={styles.project_heading}>{project.title}</h3>
-          <p className={styles.about_project}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            pharetra fermentum ante vitae convallis.
+          <h3 className={styles.project_heading}>{project.heading}</h3>
+          <p className={styles.description}>
+            {project.description.length > 100
+              ? project.description.substring(0, 100) + "..."
+              : project.description}
           </p>
         </div>
         <ul className={styles.jelly_tags}>
           <li>{project.category}</li>
+          {project.tags && project.tags.map((tag, index) => (
+            <li key={index} className={styles.tag}>{tag}</li>
+          ))}
         </ul>
         <div className={styles.project_bg_img_ctr}>
           <img
             className={styles.project_bg_img}
-            src={project.img}
-            alt="project image"
+            src={project.thumbnail}
+            alt={project.heading}
           />
         </div>
       </div>
