@@ -27,7 +27,8 @@ function Dashboard() {
           <Route path="/" element={<h2>Welcome to the Admin Dashboard</h2>} />
           <Route path="inbox" element={<Inbox />} />
           <Route path="services" element={<Services />} />
-          <Route path="projects" element={<NewProject />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/new-project" element={<NewProject />} />
           <Route path="reviews" element={<Reviews />} />
         </Routes>
       </div>
