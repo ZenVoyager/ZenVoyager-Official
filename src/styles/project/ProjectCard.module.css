@@ -1,3 +1,7 @@
+.project_link{
+  width: 100%;
+  height: 100%;
+}
 .project_card {
   max-width: 100%;
   /* height: 360px; */
