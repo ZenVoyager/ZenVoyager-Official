@@ -19,7 +19,7 @@ function Home() {
       <Services />
       <Projects />
       <Testimonials />
-      <Team />
+      {/* <Team /> */}
       <Extra />
       <Gradline />
       <Footer />
