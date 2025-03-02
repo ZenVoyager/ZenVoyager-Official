@@ -11,8 +11,21 @@
 .img_ctr {
   width: calc(1080px / 2);
   height: calc(1080px / 2);
-  background-color: lightgray;
+  /* background-color: lightgray; */
   border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  /* border: 5px solid var(--bg); */
+}
+.img_ctr img{
+  width: 100%;
+  object-fit: cover;
+  object-position: 0 -50px;
+}
+.img_ctr video{
+  width: 100%;
+  object-fit: cover;
+  object-position: 0 -50px;
 }
 .c2 {
   display: flex;

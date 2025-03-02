@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { db } from "../../Firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import styles from "../../styles/contact/Contactform.module.css";
+import contact_vid from "../../assets/contact/mov_one.mp4"
 
 function Contactform() {
   const [formData, setFormData] = useState({
@@ -53,7 +54,12 @@ function Contactform() {
   return (
     <section className={styles.contact_form_section}>
       <div className={styles.c1}>
-        <div className={styles.img_ctr}></div>
+        <div className={styles.img_ctr}>
+          {/* <img src={contact_img} alt="" /> */}
+          <video autoPlay loop muted>
+            <source src={contact_vid} type="video/mp4" />
+          </video>
+        </div>
       </div>
       <div className={styles.c2}>
         <div className={styles.heading_txt_ctr}>
