@@ -20,14 +20,74 @@ function Projects() {
     fetchProjects();
   }, []);
 
+  // Fetch project details by ID
+  const fetchProjectDetails = async (id) => {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("thumbnail, project_image")
+      .eq("id", id)
+      .single();
+
+    if (error) {
+      console.error("Error fetching project:", error);
+      return null;
+    }
+    return data;
+  };
+
+  // Extract file path from the public URL
+  const getFilePath = (url) => {
+    const parts = url.split("/projects/")[1]; // Extract path after "projects/"
+    return parts ? decodeURIComponent(parts) : null;
+  };
+
+  // Delete files from Supabase Storage
+  const deleteFile = async (filePath) => {
+    if (!filePath) return;
+
+    const { error } = await supabase.storage
+      .from("projects")
+      .remove([filePath]);
+
+    if (error) {
+      console.error(`Error deleting file (${filePath}):`, error);
+    }
+  };
+
   const handleDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete this project?")) {
-      const { error } = await supabase.from("projects").delete().eq("id", id);
-      if (error) {
-        console.error("Error deleting project:", error);
-      } else {
-        setProjects(projects.filter((project) => project.id !== id));
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this project?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      // Fetch project details
+      const project = await fetchProjectDetails(id);
+      if (!project) return;
+
+      const { thumbnail, project_image } = project;
+
+      // Delete files from Supabase
+      await deleteFile(getFilePath(thumbnail));
+      await deleteFile(getFilePath(project_image));
+
+      // Delete project entry from Supabase database
+      const { error: deleteError } = await supabase
+        .from("projects")
+        .delete()
+        .eq("id", id);
+
+      if (deleteError) {
+        console.error("Error deleting project entry:", deleteError);
+        return;
       }
+
+      // Update state to reflect deletion
+      setProjects((prevProjects) => prevProjects.filter((p) => p.id !== id));
+
+      console.log("Project deleted successfully.");
+    } catch (err) {
+      console.error("Unexpected error:", err);
     }
   };
 
@@ -35,7 +95,9 @@ function Projects() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h2>Projects</h2>
-        <Link to="new-project" className={styles.addButton}>Add New Project</Link>
+        <Link to="new-project" className={styles.addButton}>
+          Add New Project
+        </Link>
       </div>
       {loading ? (
         <p>Loading projects...</p>
@@ -52,12 +114,28 @@ function Projects() {
           <tbody>
             {projects.map((project) => (
               <tr key={project.id}>
-                <td style={{ maxWidth: "5ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{project.id}</td>
+                <td
+                  style={{
+                    maxWidth: "5ch",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {project.id}
+                </td>
                 <td>{project.heading}</td>
                 <td>{project.category}</td>
                 <td>
-                  <Link to={`/admin/projects/edit/${project.id}`} className={styles.editButton}>Edit</Link>
-                  <button onClick={() => handleDelete(project.id)} className={styles.deleteButton}>Delete</button>
+                  <Link to={`edit/${project.id}`} className={styles.editButton}>
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(project.id)}
+                    className={styles.deleteButton}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

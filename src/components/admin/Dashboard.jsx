@@ -6,6 +6,7 @@ import Services from "./Services";
 import Projects from "./Projects";
 import Reviews from "./Reviews";
 import NewProject from "./NewProject";
+import EditProjects from "./EditProjects";
 
 function Dashboard() {
   return (
@@ -29,6 +30,7 @@ function Dashboard() {
           <Route path="services" element={<Services />} />
           <Route path="projects" element={<Projects />} />
           <Route path="projects/new-project" element={<NewProject />} />
+          <Route path="projects/edit/:id" element={<EditProjects />} />
           <Route path="reviews" element={<Reviews />} />
         </Routes>
       </div>
