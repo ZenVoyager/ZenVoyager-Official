@@ -373,13 +373,13 @@
   color: var(--primary-blue-ii);
   padding: 0.7em;
   text-align: left;
-  border: 1px solid var(--white-t-20);
+  /* border: 1px solid var(--white-t-20); */
 }
 
 .markdown_content td {
   padding: 0.7em;
   color: var(--white-t-75);
-  border: 1px solid var(--white-t-20);
+  /* border: 1px solid var(--white-t-20); */
 }
 
 .markdown_content tr:nth-child(even) {

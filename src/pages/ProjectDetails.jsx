@@ -4,10 +4,11 @@ import styles from "../styles/project/ProjectDetails.module.css";
 import { tilted_arrow } from "../assets/icons";
 import supabase from "../utils/supabase";
 
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 function ProjectDetails() {
   const { id } = useParams();
@@ -102,9 +103,10 @@ function ProjectDetails() {
                 <div className={styles.markdown_content}>
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
                     components={{
-                      code({ node, inline, className, children, ...props }) {
-                        const match = /language-(\w+)/.exec(className || "");
+                      code({node, inline, className, children, ...props}) {
+                        const match = /language-(\w+)/.exec(className || '')
                         return !inline && match ? (
                           <SyntaxHighlighter
                             style={materialDark}
@@ -112,14 +114,29 @@ function ProjectDetails() {
                             PreTag="div"
                             {...props}
                           >
-                            {String(children).replace(/\n$/, "")}
+                            {String(children).replace(/\n$/, '')}
                           </SyntaxHighlighter>
                         ) : (
                           <code className={className} {...props}>
                             {children}
                           </code>
-                        );
+                        )
                       },
+                      table: ({node, ...props}) => (
+                        <div className={styles.table_container}>
+                          <table {...props} />
+                        </div>
+                      ),
+                      img: ({node, ...props}) => (
+                        <img 
+                          {...props} 
+                          style={{ 
+                            maxWidth: '100%', 
+                            height: 'auto', 
+                            display: 'inline-block' 
+                          }} 
+                        />
+                      )
                     }}
                   >
                     {section.content}
