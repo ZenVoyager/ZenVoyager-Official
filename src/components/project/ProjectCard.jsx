@@ -9,9 +9,9 @@ function ProjectCard({ project }) {
         <div className={styles.project_txt}>
           <h3 className={styles.project_heading}>{project.heading}</h3>
           <p className={styles.description}>
-            {project.description.length > 100
-              ? project.description.substring(0, 100) + "..."
-              : project.description}
+            {project.description.length > 0
+              ? project.description
+              : "No Description..."}
           </p>
         </div>
         <ul className={styles.jelly_tags}>

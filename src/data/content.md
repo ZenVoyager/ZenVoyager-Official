@@ -164,24 +164,3 @@ subcategory txt content: Future-Proof Your Career with In-Demand Skills
 Jelly tags: Corporate Training, Freelancing & Business Growth, Soft Skills Training, Programming, AI & Machine Learning
 
 ## Tech Stack Used
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="50" height="50" alt="Figma"/>
-      <br/>Figma
-    </td>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="50" height="50" alt="React.js"/>
-      <br/>React.js
-    </td>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" width="50" height="50" alt="Node.js"/>
-      <br/>Node.js
-    </td>
-    <td align="center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Firebase_Logo.svg" width="50" height="50" alt="Firebase"/>
-      <br/>Firebase
-    </td>
-  </tr>
-</table>
