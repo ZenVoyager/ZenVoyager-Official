@@ -14,11 +14,14 @@ function EditProject() {
     tags: [],
     otherCategory: "",
     liveLink: "",
+    project_date: "", // New date field
     thumbnail: null,
-    projectImage: null,
+    projectImages: [], // Changed to array for multiple images
+    sections: [], // New field for additional sections
   });
+
   const [thumbnailUrl, setThumbnailUrl] = useState("");
-  const [projectImageUrl, setProjectImageUrl] = useState("");
+  const [projectImageUrls, setProjectImageUrls] = useState([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState(null);
@@ -43,11 +46,13 @@ function EditProject() {
             tags: data.tags || [],
             otherCategory: data.otherCategory || "",
             liveLink: data.live_link || "",
-            thumbnail: null, // We don't set the file objects here
-            projectImage: null, // We don't set the file objects here
+            project_date: data.project_date || "", // New date field
+            thumbnail: null,
+            projectImages: [], // We don't set file objects here
+            sections: data.sections || [], // Load existing sections
           });
           setThumbnailUrl(data.thumbnail);
-          setProjectImageUrl(data.project_image);
+          setProjectImageUrls(data.project_images || []);
         }
       } catch (error) {
         setMessage(`Error loading project: ${error.message}`);
@@ -84,7 +89,51 @@ function EditProject() {
   };
 
   const handleFileChange = (e) => {
-    setProject({ ...project, [e.target.name]: e.target.files[0] });
+    if (e.target.name === 'projectImages') {
+      // For multiple project images
+      setProject(prev => ({
+        ...prev,
+        projectImages: [...prev.projectImages, ...e.target.files]
+      }));
+    } else {
+      // For single file inputs
+      setProject({ ...project, [e.target.name]: e.target.files[0] });
+    }
+  };
+
+  const removeProjectImage = (indexToRemove) => {
+    setProject(prev => ({
+      ...prev,
+      projectImages: prev.projectImages.filter((_, index) => index !== indexToRemove)
+    }));
+  };
+
+  const removeExistingProjectImage = (indexToRemove) => {
+    const updatedUrls = projectImageUrls.filter((_, index) => index !== indexToRemove);
+    setProjectImageUrls(updatedUrls);
+  };
+
+  const addSection = () => {
+    setProject(prev => ({
+      ...prev,
+      sections: [...prev.sections, { heading: "", content: "" }]
+    }));
+  };
+
+  const updateSection = (index, field, value) => {
+    const updatedSections = [...project.sections];
+    updatedSections[index][field] = value;
+    setProject(prev => ({
+      ...prev,
+      sections: updatedSections
+    }));
+  };
+
+  const removeSection = (indexToRemove) => {
+    setProject(prev => ({
+      ...prev,
+      sections: prev.sections.filter((_, index) => index !== indexToRemove)
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -100,8 +149,10 @@ function EditProject() {
         tags,
         otherCategory,
         liveLink,
+        project_date,
         thumbnail,
-        projectImage,
+        projectImages,
+        sections
       } = project;
 
       // Ensure required fields are filled
@@ -136,16 +187,19 @@ function EditProject() {
           .getPublicUrl(`${path}/${file.name}`).data.publicUrl;
       };
 
-      // Upload new images if provided
+      // Upload thumbnail
       let updatedThumbnailUrl = thumbnailUrl;
-      let updatedProjectImageUrl = projectImageUrl;
-
       if (thumbnail) {
         updatedThumbnailUrl = await uploadFile(thumbnail, "thumbnails", thumbnailUrl);
       }
 
-      if (projectImage) {
-        updatedProjectImageUrl = await uploadFile(projectImage, "projectImages", projectImageUrl);
+      // Upload new project images and keep existing ones
+      let updatedProjectImageUrls = [...projectImageUrls];
+      if (projectImages.length > 0) {
+        const newImageUrls = await Promise.all(
+          projectImages.map(img => uploadFile(img, "projectImages", null))
+        );
+        updatedProjectImageUrls = [...updatedProjectImageUrls, ...newImageUrls];
       }
 
       // Update project data in Supabase database
@@ -158,8 +212,10 @@ function EditProject() {
           tags,
           otherCategory,
           live_link: liveLink,
+          project_date,
           thumbnail: updatedThumbnailUrl,
-          project_image: updatedProjectImageUrl,
+          project_images: updatedProjectImageUrls,
+          sections: sections
         })
         .eq("id", id);
 
@@ -200,6 +256,17 @@ function EditProject() {
           required
           className={styles.textarea}
         ></textarea>
+        
+        {/* New Date Input */}
+        <label htmlFor="project_date">Project Date</label>
+        <input
+          type="date"
+          name="project_date"
+          value={project.project_date}
+          onChange={handleChange}
+          className={styles.input}
+        />
+
         <select
           name="category"
           value={project.category}
@@ -250,6 +317,7 @@ function EditProject() {
           className={styles.input}
         />
         
+        {/* Thumbnail Upload */}
         <div className={styles.image_preview}>
           <label htmlFor="thumbnail">Current Thumbnail:</label>
           {thumbnailUrl && (
@@ -267,24 +335,89 @@ function EditProject() {
           onChange={handleFileChange}
           className={styles.file_input}
         />
-        
-        <div className={styles.image_preview}>
-          <label htmlFor="projectImage">Current Project Image:</label>
-          {projectImageUrl && (
-            <img 
-              src={projectImageUrl} 
-              alt="Current project image" 
-              style={{ width: "200px", height: "auto", marginTop: "5px" }}
-            />
-          )}
+
+        {/* Existing Project Images */}
+        <div className={styles.image_preview_container}>
+          <label>Current Project Images:</label>
+          {projectImageUrls.map((url, index) => (
+            <div key={index} className={styles.image_preview}>
+              <img 
+                src={url} 
+                alt={`Project image ${index + 1}`} 
+                style={{ width: "100px", height: "auto", marginTop: "5px" }}
+              />
+              <button 
+                type="button" 
+                onClick={() => removeExistingProjectImage(index)}
+                className={styles.remove_btn}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
         </div>
-        <label htmlFor="projectImage">Change Project Image (leave empty to keep current)</label>
+
+        {/* Add New Project Images */}
+        <label htmlFor="projectImages">Add More Project Images</label>
         <input
           type="file"
-          name="projectImage"
+          name="projectImages"
+          multiple
           onChange={handleFileChange}
           className={styles.file_input}
         />
+        {project.projectImages.length > 0 && (
+          <div className={styles.image_preview_container}>
+            {project.projectImages.map((img, index) => (
+              <div key={index} className={styles.image_preview}>
+                <span>{img.name}</span>
+                <button 
+                  type="button" 
+                  onClick={() => removeProjectImage(index)}
+                  className={styles.remove_btn}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Sections Management */}
+        <div className={styles.sections_container}>
+          <h3>Project Sections</h3>
+          {project.sections.map((section, index) => (
+            <div key={index} className={styles.section_item}>
+              <input
+                type="text"
+                placeholder="Section Heading"
+                value={section.heading}
+                onChange={(e) => updateSection(index, 'heading', e.target.value)}
+                className={styles.input}
+              />
+              <textarea
+                placeholder="Section Content"
+                value={section.content}
+                onChange={(e) => updateSection(index, 'content', e.target.value)}
+                className={styles.textarea}
+              ></textarea>
+              <button 
+                type="button" 
+                onClick={() => removeSection(index)}
+                className={styles.remove_btn}
+              >
+                Remove Section
+              </button>
+            </div>
+          ))}
+          <button 
+            type="button" 
+            onClick={addSection}
+            className={styles.add_section_btn}
+          >
+            Add More Section
+          </button>
+        </div>
         
         <button type="submit" disabled={submitting} className={styles.submit_btn}>
           {submitting ? "Updating..." : "Update Project"}

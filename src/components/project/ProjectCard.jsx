@@ -15,7 +15,6 @@ function ProjectCard({ project }) {
           </p>
         </div>
         <ul className={styles.jelly_tags}>
-          <li>{project.category}</li>
           {project.tags && project.tags.map((tag, index) => (
             <li key={index} className={styles.tag}>{tag}</li>
           ))}

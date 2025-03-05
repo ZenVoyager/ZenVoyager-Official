@@ -13,8 +13,10 @@ function NewProject() {
     tags: [],
     otherCategory: "",
     liveLink: "",
+    project_date: "", // New date field
     thumbnail: null,
-    projectImage: null,
+    projectImages: [], // Changed to array for multiple images
+    sections: [], // New field for additional sections
   });
 
   const [loading, setLoading] = useState(false);
@@ -43,7 +45,46 @@ function NewProject() {
   };
 
   const handleFileChange = (e) => {
-    setProject({ ...project, [e.target.name]: e.target.files[0] });
+    if (e.target.name === 'projectImages') {
+      // For multiple project images
+      setProject(prev => ({
+        ...prev,
+        projectImages: [...prev.projectImages, ...e.target.files]
+      }));
+    } else {
+      // For single file inputs
+      setProject({ ...project, [e.target.name]: e.target.files[0] });
+    }
+  };
+
+  const removeProjectImage = (indexToRemove) => {
+    setProject(prev => ({
+      ...prev,
+      projectImages: prev.projectImages.filter((_, index) => index !== indexToRemove)
+    }));
+  };
+
+  const addSection = () => {
+    setProject(prev => ({
+      ...prev,
+      sections: [...prev.sections, { heading: "", content: "" }]
+    }));
+  };
+
+  const updateSection = (index, field, value) => {
+    const updatedSections = [...project.sections];
+    updatedSections[index][field] = value;
+    setProject(prev => ({
+      ...prev,
+      sections: updatedSections
+    }));
+  };
+
+  const removeSection = (indexToRemove) => {
+    setProject(prev => ({
+      ...prev,
+      sections: prev.sections.filter((_, index) => index !== indexToRemove)
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -59,8 +100,10 @@ function NewProject() {
         tags,
         otherCategory,
         liveLink,
+        project_date,
         thumbnail,
-        projectImage,
+        projectImages,
+        sections
       } = project;
 
       // Ensure required fields are filled
@@ -68,9 +111,9 @@ function NewProject() {
         !heading ||
         !description ||
         !category ||
-        !tags ||
+        !tags.length ||
         !thumbnail ||
-        !projectImage
+        !projectImages.length
       ) {
         setMessage("Please fill all required fields and upload images.");
         setLoading(false);
@@ -80,7 +123,7 @@ function NewProject() {
       // Function to upload file to Supabase storage
       const uploadFile = async (file, path) => {
         const { data, error } = await supabase.storage
-          .from("projects") // Bucket name
+          .from("projects")
           .upload(`${path}/${file.name}`, file, {
             cacheControl: "3600",
             upsert: false,
@@ -92,14 +135,13 @@ function NewProject() {
           .getPublicUrl(`${path}/${file.name}`).data.publicUrl;
       };
 
-      // Upload thumbnail and project image
+      // Upload thumbnail and project images
       const thumbnailUrl = await uploadFile(thumbnail, "thumbnails");
-      const projectImageUrl = await uploadFile(projectImage, "projectImages");
-      // const thumbnailUrl = "anything";
-      // const projectImageUrl = "anything";
+      const projectImageUrls = await Promise.all(
+        projectImages.map(img => uploadFile(img, "projectImages"))
+      );
 
       // Store project data in Supabase database
-      // console.log(project);
       const { error } = await supabase.from("projects").insert([
         {
           heading,
@@ -108,15 +150,17 @@ function NewProject() {
           tags,
           otherCategory,
           live_link: liveLink,
+          project_date,
           thumbnail: thumbnailUrl,
-          project_image: projectImageUrl,
+          project_images: projectImageUrls,
+          sections: sections
         },
       ]);
 
       if (error) throw error;
 
       setMessage("Project added successfully!");
-      // setTimeout(() => navigate("/projects"), 2000); // Redirect after 2s
+      setTimeout(() => navigate("/admin/dashboard/projects"), 2000); // Redirect after 2s
     } catch (error) {
       setMessage(`Error: ${error.message}`);
     } finally {
@@ -146,6 +190,17 @@ function NewProject() {
           required
           className={styles.textarea}
         ></textarea>
+        
+        {/* New Date Input */}
+        <label htmlFor="project_date">Project Date</label>
+        <input
+          type="date"
+          name="project_date"
+          value={project.project_date}
+          onChange={handleChange}
+          className={styles.input}
+        />
+
         <select
           name="category"
           value={project.category}
@@ -195,6 +250,8 @@ function NewProject() {
           onChange={handleChange}
           className={styles.input}
         />
+        
+        {/* Thumbnail Upload */}
         <label htmlFor="thumbnail">Upload Thumbnail</label>
         <input
           type="file"
@@ -202,13 +259,69 @@ function NewProject() {
           onChange={handleFileChange}
           className={styles.file_input}
         />
-        <label htmlFor="projectImage">Upload Project Image</label>
+
+        {/* Multiple Project Images Upload */}
+        <label htmlFor="projectImages">Upload Project Images</label>
         <input
           type="file"
-          name="projectImage"
+          name="projectImages"
+          multiple
           onChange={handleFileChange}
           className={styles.file_input}
         />
+        {project.projectImages.length > 0 && (
+          <div className={styles.image_preview_container}>
+            {project.projectImages.map((img, index) => (
+              <div key={index} className={styles.image_preview}>
+                <span>{img.name}</span>
+                <button 
+                  type="button" 
+                  onClick={() => removeProjectImage(index)}
+                  className={styles.remove_btn}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Sections Management */}
+        <div className={styles.sections_container}>
+          <h3>Project Sections</h3>
+          {project.sections.map((section, index) => (
+            <div key={index} className={styles.section_item}>
+              <input
+                type="text"
+                placeholder="Section Heading"
+                value={section.heading}
+                onChange={(e) => updateSection(index, 'heading', e.target.value)}
+                className={styles.input}
+              />
+              <textarea
+                placeholder="Section Content"
+                value={section.content}
+                onChange={(e) => updateSection(index, 'content', e.target.value)}
+                className={styles.textarea}
+              ></textarea>
+              <button 
+                type="button" 
+                onClick={() => removeSection(index)}
+                className={styles.remove_btn}
+              >
+                Remove Section
+              </button>
+            </div>
+          ))}
+          <button 
+            type="button" 
+            onClick={addSection}
+            className={styles.add_section_btn}
+          >
+            Add More Section
+          </button>
+        </div>
+
         <button type="submit" disabled={loading} className={styles.submit_btn}>
           {loading ? "Submitting..." : "Submit"}
         </button>

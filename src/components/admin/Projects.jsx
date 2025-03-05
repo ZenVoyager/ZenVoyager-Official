@@ -24,7 +24,7 @@ function Projects() {
   const fetchProjectDetails = async (id) => {
     const { data, error } = await supabase
       .from("projects")
-      .select("thumbnail, project_image")
+      .select("thumbnail, project_images")
       .eq("id", id)
       .single();
 
@@ -37,6 +37,7 @@ function Projects() {
 
   // Extract file path from the public URL
   const getFilePath = (url) => {
+    if (!url) return null;
     const parts = url.split("/projects/")[1]; // Extract path after "projects/"
     return parts ? decodeURIComponent(parts) : null;
   };
@@ -65,11 +66,21 @@ function Projects() {
       const project = await fetchProjectDetails(id);
       if (!project) return;
 
-      const { thumbnail, project_image } = project;
+      const { thumbnail, project_images } = project;
 
-      // Delete files from Supabase
-      await deleteFile(getFilePath(thumbnail));
-      await deleteFile(getFilePath(project_image));
+      // Delete thumbnail
+      const thumbnailPath = getFilePath(thumbnail);
+      await deleteFile(thumbnailPath);
+
+      // Delete multiple project images
+      if (Array.isArray(project_images)) {
+        const imagePaths = project_images
+          .map(getFilePath)
+          .filter((path) => path !== null);
+
+        // Delete all project images
+        await Promise.all(imagePaths.map((path) => deleteFile(path)));
+      }
 
       // Delete project entry from Supabase database
       const { error: deleteError } = await supabase

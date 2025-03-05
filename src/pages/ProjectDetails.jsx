@@ -40,6 +40,7 @@ function ProjectDetails() {
     <div className={styles.container}>
       {/* Left Section - Media */}
       <div className={styles.leftSection}>
+        <div className={styles.project_details_section}></div>
         <h2 className={styles.heading}>{project.heading}</h2>
         <ul className={styles.jelly_tags}>
           {project.tags.map((tag, index) => (
@@ -58,7 +59,7 @@ function ProjectDetails() {
       <div className={styles.rightSection}>
         <h2 className={styles.fixedTxt}><span className="playfair italic">The</span> Showcase</h2>
         <img
-          src={project.project_image}
+          src={project.project_images}
           alt={project.heading}
           className={styles.projectImage}
         />

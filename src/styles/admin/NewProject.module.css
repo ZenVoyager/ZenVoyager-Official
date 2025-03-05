@@ -126,7 +126,7 @@
 
 .success_message {
   background: rgba(50, 205, 50, 0.1);
-  color: #32cd32;
+  color: #32cd80;
   padding: 10px;
   text-align: center;
   margin-top: 10px;
@@ -135,9 +135,52 @@
 
 .error_message {
   background: rgba(255, 0, 0, 0.1);
-  color: #ff4d4d;
+  color: #ff2341;
   padding: 10px;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
+}
+.image_preview_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.image_preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+}
+
+.remove_btn {
+  background-color: #ff243e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.add_section_btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.sections_container {
+  margin-top: 20px;
+}
+
+.section_item {
+  margin-bottom: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
