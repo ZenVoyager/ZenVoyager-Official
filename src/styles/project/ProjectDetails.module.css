@@ -13,12 +13,11 @@
   /* padding: 20px; */
   box-sizing: border-box;
 }
-.project_details_section
 
 /* Right Section Styling */
 .rightSection {
   width: 60%;
-  background-color: #0000;
+  /* background-color: #0000; */
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -30,25 +29,27 @@
 .projectImage {
   width: 100%;
   height: auto;
+  margin: 0;
 }
 
 /* Left Section Styling */
 .leftSection {
   width: 40%;
-  background-color: #0000;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   padding: 40px;
-  overflow-y: auto;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+}
+.leftSection::-webkit-scrollbar {
+  display: none;
+}
 
+.project_details_section {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
-}
-.leftSection::-webkit-scrollbar {
-  display: none;
 }
 
 .heading {
@@ -165,10 +166,11 @@
 
 /* 📌 Responsive Design for Mobile */
 @media screen and (max-width: 1150px) {
-    .leftSection,.rightSection{
-        width: auto;
-        flex: 1;
-    }
+  .leftSection,
+  .rightSection {
+    width: auto;
+    flex: 1;
+  }
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -177,21 +179,31 @@
   }
   .leftSection {
     margin: 5rem;
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
   }
   /* .rightSection {
     height: 40vh; 
   } */
+  .project_details_section {
+    min-height: 90vh;
+    padding: 0;
+  }
+  .fixedTxt {
+    margin-top: 0;
+  }
 
   .leftSection {
     height: auto;
     padding: 20px;
   }
+  .hide_on_mobile {
+    display: none;
+  }
 }
 @media screen and (max-width: 550px) {
   .leftSection {
     margin: 1rem;
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
   }
   .heading {
     font-size: 32px;
@@ -212,6 +224,164 @@
 @media screen and (max-width: 400px) {
   .leftSection {
     margin: 0.5rem;
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
   }
+}
+
+/* Markdown styling */
+/* Markdown Styles with Custom Color Theme */
+.markdown_content {
+  line-height: 1.7;
+  color: var(--white);
+  background-color: var(--bg);
+  padding: 1rem 0;
+  border-radius: 8px;
+}
+
+.markdown_content h1 {
+  font-size: 2.2em;
+  color: var(--primary-blue-ii);
+  border-bottom: 2px solid var(--white-t-20);
+  padding-bottom: 0.4em;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.markdown_content h2 {
+  font-size: 1.8em;
+  color: var(--primary-blue);
+  border-bottom: 1px solid var(--white-t-20);
+  padding-bottom: 0.3em;
+}
+
+.markdown_content h3 {
+  font-size: 1.5em;
+  color: var(--primary-blue-ii);
+}
+
+.markdown_content h4 {
+  font-size: 1.25em;
+  color: var(--primary-blue);
+}
+
+.markdown_content h5 {
+  font-size: 1.1em;
+  color: var(--primary-blue);
+  opacity: 0.9;
+}
+
+.markdown_content h6 {
+  font-size: 1em;
+  color: var(--primary-blue);
+  opacity: 0.8;
+}
+
+.markdown_content p {
+  margin-bottom: 1.2em;
+  color: var(--white-t-75);
+}
+
+.markdown_content ul, 
+.markdown_content ol {
+  padding-left: 2em;
+  margin-bottom: 1.2em;
+}
+
+.markdown_content li {
+  margin-bottom: 0.6em;
+  color: var(--white-t-75);
+  position: relative;
+}
+
+.markdown_content li::before {
+  content: '•';
+  color: var(--primary-blue-ii);
+  position: absolute;
+  left: -1em;
+}
+
+.markdown_content a {
+  color: var(--primary-blue-ii);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.markdown_content a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.markdown_content blockquote {
+  border-left: 4px solid var(--primary-blue);
+  background-color: var(--white-t-20);
+  padding: 1em;
+  margin-bottom: 1.2em;
+  font-style: italic;
+  color: var(--white-t-75);
+}
+
+.markdown_content code {
+  background-color: var(--white-t-20);
+  color: var(--primary-blue-ii);
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  font-family: 'Fira Code', monospace;
+}
+
+.markdown_content pre {
+  background-color: var(--white-t-20);
+  border: 1px solid var(--white-t-20);
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+  margin-bottom: 1.2em;
+}
+
+.markdown_content pre > code {
+  background-color: transparent;
+  color: var(--white);
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.markdown_content strong {
+  color: var(--primary-blue-ii);
+  font-weight: 600;
+}
+
+.markdown_content em {
+  color: var(--primary-blue);
+  font-style: italic;
+}
+
+.markdown_content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary-blue), var(--primary-blue-ii));
+  margin: 1.5em 0;
+}
+
+.markdown_content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.2em;
+}
+
+.markdown_content th {
+  background-color: var(--white-t-20);
+  color: var(--primary-blue-ii);
+  padding: 0.7em;
+  text-align: left;
+  border: 1px solid var(--white-t-20);
+}
+
+.markdown_content td {
+  padding: 0.7em;
+  color: var(--white-t-75);
+  border: 1px solid var(--white-t-20);
+}
+
+.markdown_content tr:nth-child(even) {
+  background-color: var(--white-t-20);
 }
