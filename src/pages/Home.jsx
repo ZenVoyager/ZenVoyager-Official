@@ -20,9 +20,9 @@ function Home() {
       <Reveal>
         <Services />
       </Reveal>
-      <Reveal>
+      {/* <Reveal> */}
         <Projects />
-      </Reveal>
+      {/* </Reveal> */}
       <Reveal>
         <Testimonials />
       </Reveal>

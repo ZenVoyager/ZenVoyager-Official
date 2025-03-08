@@ -20,6 +20,7 @@ function Gallary() {
   const [loadingMore, setLoadingMore] = useState(false);
   const observer = useRef(null);
 
+  // Fetch all projects from Supabase
   useEffect(() => {
     async function fetchProjects() {
       const { data, error } = await supabase
@@ -31,17 +32,21 @@ function Gallary() {
         console.error("Error fetching projects:", error);
       } else {
         setProjects(data);
-        setVisibleProjects(data.slice(0, PROJECTS_PER_BATCH)); // Show first batch
       }
       setLoading(false);
     }
     fetchProjects();
   }, []);
 
-  const filteredProjects =
-    activeCategory === "All Projects"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+  // Filter projects based on category
+  useEffect(() => {
+    const filtered = 
+      activeCategory === "All Projects"
+        ? projects
+        : projects.filter((project) => project.category === activeCategory);
+
+    setVisibleProjects(filtered.slice(0, PROJECTS_PER_BATCH)); // Show first batch
+  }, [activeCategory, projects]);
 
   // Load more projects when the user scrolls to the bottom
   const loadMoreProjects = useCallback(() => {
@@ -50,7 +55,12 @@ function Gallary() {
     setLoadingMore(true);
     setTimeout(() => {
       const currentCount = visibleProjects.length;
-      const newProjects = filteredProjects.slice(
+      const filtered = 
+        activeCategory === "All Projects"
+          ? projects
+          : projects.filter((project) => project.category === activeCategory);
+
+      const newProjects = filtered.slice(
         currentCount,
         currentCount + PROJECTS_PER_BATCH
       );
@@ -61,12 +71,12 @@ function Gallary() {
 
       setLoadingMore(false);
     }, 1000); // Simulate network delay
-  }, [filteredProjects, visibleProjects, loadingMore]);
+  }, [activeCategory, projects, visibleProjects, loadingMore]);
 
   // Intersection Observer to detect when the user reaches the bottom
   const lastProjectRef = useCallback(
     (node) => {
-      if (loading || loadingMore || visibleProjects.length === filteredProjects.length) return;
+      if (loading || loadingMore || visibleProjects.length === projects.length) return;
 
       if (observer.current) observer.current.disconnect();
 
@@ -78,7 +88,7 @@ function Gallary() {
 
       if (node) observer.current.observe(node);
     },
-    [loading, loadingMore, visibleProjects, filteredProjects, loadMoreProjects]
+    [loading, loadingMore, visibleProjects, projects, loadMoreProjects]
   );
 
   return (

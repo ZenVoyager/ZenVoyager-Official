@@ -14,9 +14,9 @@ function Projects() {
       <Reveal>
         <Landing />
       </Reveal>
-      <Reveal>
+      {/* <Reveal> */}
         <Gallary />
-      </Reveal>
+      {/* </Reveal> */}
       <Reveal>
         <Extra />
       </Reveal>
