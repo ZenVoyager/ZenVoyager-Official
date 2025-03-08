@@ -1,34 +1,112 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../styles/Services.module.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 import coding_dev from "../assets/services/coding_dev.webp";
 import video_editing from "../assets/services/video_editing.webp";
 import graphic_design from "../assets/services/graphic_design.webp";
-import { Link } from "react-router-dom";
-// import more_service from "../assets/services/coding_dev.webp";
-import services from "../data/services.json"
+import services from "../data/services.json";
+import { arrow_one } from "../assets/icons";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
-  const arrow = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="41"
-      height="40"
-      viewBox="0 0 41 40"
-      fill="none"
-    >
-      <path
-        d="M27.3551 23.7974L27.3276 13.1994L16.7296 13.1719C16.6192 13.157 16.5069 13.1659 16.4002 13.1982C16.2936 13.2304 16.1951 13.2852 16.1114 13.3588C16.0278 13.4324 15.961 13.5231 15.9154 13.6248C15.8699 13.7265 15.8467 13.8368 15.8475 13.9482C15.8483 14.0596 15.8731 14.1696 15.92 14.2706C15.967 14.3717 16.0352 14.4614 16.1198 14.5338C16.2045 14.6062 16.3038 14.6596 16.4109 14.6903C16.518 14.721 16.6305 14.7284 16.7406 14.7119L24.6822 14.7448L14.1613 25.2658C14.0154 25.4117 13.9335 25.6095 13.9335 25.8158C13.9335 26.0221 14.0154 26.2199 14.1613 26.3658C14.3071 26.5116 14.505 26.5936 14.7112 26.5936C14.9175 26.5936 15.1154 26.5116 15.2612 26.3658L25.7822 15.8448L25.8152 23.7864C25.8159 23.9928 25.8986 24.1904 26.0451 24.3359C26.1915 24.4813 26.3897 24.5626 26.5961 24.5618C26.8025 24.5611 27.0002 24.4784 27.1456 24.332C27.291 24.1855 27.3723 23.9873 27.3716 23.7809L27.3551 23.7974Z"
-        fill="#F6F6F6"
-      />
-    </svg>
-  );
+  const sectionRef = useRef(null);
+  const scrollerRef = useRef(null);
+  const cardsRef = useRef([]);
 
-  // console.log(services.services);
-  
+  // Initialize refs array
+  const addToCardsRef = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    // Set initial state for fade-in cards (opacity 0)
+    gsap.set(cardsRef.current, { 
+      opacity: 0, 
+      y: 30, 
+      scale: 0.95 
+    });
+
+    // Fade in the heading with a slight delay
+    const headingEl = sectionRef.current.querySelector(`.${styles.heading_ctr}`);
+    gsap.fromTo(headingEl, 
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+    );
+
+    // Store the animation instance so we can clean it up later
+    let st;
+    
+    const initScrollTrigger = () => {
+      // Make sure elements are mounted
+      if (!scrollerRef.current || !sectionRef.current) return;
+      
+      // Kill any existing ScrollTrigger instances to prevent duplicates
+      if (st) st.kill();
+      
+      const scroller = scrollerRef.current;
+      const container = sectionRef.current;
+      
+      // Calculate the total width to scroll (scrollWidth minus visible width)
+      const totalWidth = scroller.scrollWidth - scroller.offsetWidth;
+      
+      // Only set up ScrollTrigger if there's content to scroll
+      if (totalWidth <= 0) return;
+      
+      // Create the ScrollTrigger animation
+      st = ScrollTrigger.create({
+        trigger: container,
+        start: "top top",
+        end: () => `+=${totalWidth + 100}`, // Add some extra scroll room
+        pin: true,
+        anticipatePin: 1,
+        scrub: 0.5, // Smooth scrubbing effect (lower = smoother)
+        invalidateOnRefresh: true, // Recalculate on window resize
+        onUpdate: (self) => {
+          // Apply the transform directly
+          gsap.set(scroller, { x: -totalWidth * self.progress });
+        },
+        onEnter: () => {
+          // Fade in each card sequentially when section comes into view
+          gsap.to(cardsRef.current, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out"
+          });
+        }
+      });
+    };
+    
+    // Initialize ScrollTrigger
+    initScrollTrigger();
+    
+    // Recalculate on window resize
+    const handleResize = () => {
+      // Small delay to ensure accurate measurements after resize
+      setTimeout(initScrollTrigger, 100);
+    };
+    
+    window.addEventListener("resize", handleResize);
+    
+    // Clean up function
+    return () => {
+      if (st) st.kill();
+      window.removeEventListener("resize", handleResize);
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section className={styles.services_section}>
+    <section ref={sectionRef} className={styles.services_section}>
       <div className={styles.heading_ctr}>
         <span className={styles.head_txt}>
           Explore our <span className={`playfair italic`}>services</span>
@@ -40,27 +118,27 @@ function Services() {
       </div>
 
       <div className={styles.cards_ctr}>
-        <div className={styles.scroller}>
+        <div className={styles.scroller} ref={scrollerRef}>
           <Link to={`/service/${services.services[0].id}`}>
-            <div className={styles.card}>
+            <div className={styles.card} ref={addToCardsRef}>
               <img src={coding_dev} alt="Coding & Development" />
             </div>
           </Link>
 
           <Link to={`/service/${services.services[2].id}`}>
-            <div className={styles.card}>
+            <div className={styles.card} ref={addToCardsRef}>
               <img src={video_editing} alt="Videography & Editing" />
             </div>
           </Link>
 
           <Link to={`/service/${services.services[1].id}`}>
-            <div className={styles.card}>
+            <div className={styles.card} ref={addToCardsRef}>
               <img src={graphic_design} alt="Graphic Designing" />
             </div>
           </Link>
 
           <Link to="/contact">
-            <div className={`${styles.card} ${styles.cta_card}`}>
+            <div className={`${styles.card} ${styles.cta_card}`} ref={addToCardsRef}>
               <div className={styles.card_txt}>
                 <span>Want</span>
                 <span className={styles.bold_txt}>ANYTHING</span>
@@ -68,7 +146,7 @@ function Services() {
               </div>
               <div className={styles.cta}>
                 <span>Let's Discuss</span>
-                {arrow}
+                {arrow_one}
               </div>
             </div>
           </Link>

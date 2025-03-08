@@ -13,7 +13,9 @@ import Reveal from "../components/Reveal"; // Import Reveal Component
 function Home() {
   return (
     <>
-      <Landing />
+      <Reveal>
+        <Landing />
+      </Reveal>
       <Reveal>
         <Clients />
       </Reveal>
@@ -21,7 +23,7 @@ function Home() {
         <Services />
       </Reveal>
       {/* <Reveal> */}
-        <Projects />
+      <Projects />
       {/* </Reveal> */}
       <Reveal>
         <Testimonials />
