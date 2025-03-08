@@ -16,30 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
 function Services() {
   const sectionRef = useRef(null);
   const scrollerRef = useRef(null);
-  const cardsRef = useRef([]);
-
-  // Initialize refs array
-  const addToCardsRef = (el) => {
-    if (el && !cardsRef.current.includes(el)) {
-      cardsRef.current.push(el);
-    }
-  };
 
   useEffect(() => {
-    // Set initial state for fade-in cards (opacity 0)
-    gsap.set(cardsRef.current, { 
-      opacity: 0, 
-      y: 30, 
-      scale: 0.95 
-    });
-
-    // Fade in the heading with a slight delay
-    const headingEl = sectionRef.current.querySelector(`.${styles.heading_ctr}`);
-    gsap.fromTo(headingEl, 
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
-
     // Store the animation instance so we can clean it up later
     let st;
     
@@ -71,17 +49,6 @@ function Services() {
         onUpdate: (self) => {
           // Apply the transform directly
           gsap.set(scroller, { x: -totalWidth * self.progress });
-        },
-        onEnter: () => {
-          // Fade in each card sequentially when section comes into view
-          gsap.to(cardsRef.current, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out"
-          });
         }
       });
     };
@@ -120,25 +87,25 @@ function Services() {
       <div className={styles.cards_ctr}>
         <div className={styles.scroller} ref={scrollerRef}>
           <Link to={`/service/${services.services[0].id}`}>
-            <div className={styles.card} ref={addToCardsRef}>
+            <div className={styles.card}>
               <img src={coding_dev} alt="Coding & Development" />
             </div>
           </Link>
 
           <Link to={`/service/${services.services[2].id}`}>
-            <div className={styles.card} ref={addToCardsRef}>
+            <div className={styles.card}>
               <img src={video_editing} alt="Videography & Editing" />
             </div>
           </Link>
 
           <Link to={`/service/${services.services[1].id}`}>
-            <div className={styles.card} ref={addToCardsRef}>
+            <div className={styles.card}>
               <img src={graphic_design} alt="Graphic Designing" />
             </div>
           </Link>
 
           <Link to="/contact">
-            <div className={`${styles.card} ${styles.cta_card}`} ref={addToCardsRef}>
+            <div className={`${styles.card} ${styles.cta_card}`}>
               <div className={styles.card_txt}>
                 <span>Want</span>
                 <span className={styles.bold_txt}>ANYTHING</span>
