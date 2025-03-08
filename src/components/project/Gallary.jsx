@@ -17,7 +17,10 @@ function Gallary() {
 
   useEffect(() => {
     async function fetchProjects() {
-      const { data, error } = await supabase.from("projects").select();
+      const { data, error } = await supabase
+        .from("projects")
+        .select()
+        .order("project_date", { ascending: false }) // Get latest projects first
       if (error) {
         console.error("Error fetching projects:", error);
       } else {

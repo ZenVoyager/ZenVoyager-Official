@@ -19,7 +19,7 @@ function Projects() {
       const { data, error } = await supabase
         .from("projects")
         .select()
-        .order("created_at", { ascending: false }) // Get latest projects first
+        .order("project_date", { ascending: false }) // Get latest projects first
         .limit(4); // Limit to 4 projects
 
       if (error) {
