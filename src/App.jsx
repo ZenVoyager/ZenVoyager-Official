@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import abLogo from "/abLogo.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
@@ -14,25 +15,42 @@ import ServiceDetails from "./pages/ServiceDetails";
 import Admin from "./pages/Admin";
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <Navbar />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/service/:id" element={<ServiceDetails />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/project" element={<Projects />} />
-        <Route path="/project/:id" element={<ProjectDetails />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/admin/*" element={<Admin />} />
-        <Route path="/*" element={<Error />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+          <Route path="/home" element={<PageWrapper><Home /></PageWrapper>} />
+          <Route path="/service/:id" element={<PageWrapper><ServiceDetails /></PageWrapper>} />
+          <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+          <Route path="/project" element={<PageWrapper><Projects /></PageWrapper>} />
+          <Route path="/project/:id" element={<PageWrapper><ProjectDetails /></PageWrapper>} />
+          <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
+          <Route path="/projects/:id" element={<PageWrapper><ProjectDetails /></PageWrapper>} />
+          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+          <Route path="/admin/*" element={<PageWrapper><Admin /></PageWrapper>} />
+          <Route path="/*" element={<PageWrapper><Error /></PageWrapper>} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }
+
+// Animation Wrapper Component
+const PageWrapper = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default App;

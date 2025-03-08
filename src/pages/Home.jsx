@@ -8,21 +8,33 @@ import Team from "../components/Team";
 import Extra from "../components/Extra";
 import Footer from "../components/Footer";
 import Gradline from "../components/Gradline";
-// import Scene from "../components/Scene";
+import Reveal from "../components/Reveal"; // Import Reveal Component
 
 function Home() {
   return (
     <>
-      {/* <Scene /> */}
       <Landing />
-      <Clients />
-      <Services />
-      <Projects />
-      <Testimonials />
-      {/* <Team /> */}
-      <Extra />
-      <Gradline />
-      <Footer />
+      <Reveal>
+        <Clients />
+      </Reveal>
+      <Reveal>
+        <Services />
+      </Reveal>
+      <Reveal>
+        <Projects />
+      </Reveal>
+      <Reveal>
+        <Testimonials />
+      </Reveal>
+      <Reveal>
+        <Extra />
+      </Reveal>
+      <Reveal>
+        <Gradline />
+      </Reveal>
+      <Reveal>
+        <Footer />
+      </Reveal>
     </>
   );
 }
