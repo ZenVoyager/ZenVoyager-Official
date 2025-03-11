@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import ab_productions_logo from "../assets/ab_productions_logo.svg";
+import zen_logo from "../assets/zen_logo.svg";
 import styles from "../styles/Navbar.module.css";
 import "../styles/Navbar.css";
 
@@ -23,7 +23,7 @@ function Navbar() {
       <div className={styles.navbar}>
         <div className={styles.logo}>
           <Link to="/">
-            <img src={ab_productions_logo} alt="AB Productions" />
+            <img src={zen_logo} alt="AB Productions" />
           </Link>
         </div>
 

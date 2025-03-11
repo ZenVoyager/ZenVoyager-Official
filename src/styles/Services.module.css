@@ -4,6 +4,11 @@
   justify-content: center;
   /* align-items: center; */
   min-height: 100vh;
+  /* background-image: url(../assets/services_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+  /* background-attachment: fixed; */
 }
 .heading_ctr {
   display: flex;

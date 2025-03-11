@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "../styles/Footer.module.css";
 
-import ab_productions_logo from "../assets/ab_productions_trademark.svg";
+import zen_logo from "../assets/zen_trademark.svg";
 import { tilted_arrow } from "../assets/icons";
 
 function Footer() {
@@ -13,7 +13,7 @@ function Footer() {
         <div className={styles.logo_ctr}>
           <img
             className={styles.logo}
-            src={ab_productions_logo}
+            src={zen_logo}
             alt="AB Productions"
           />
         </div>

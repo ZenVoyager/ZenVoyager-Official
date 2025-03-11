@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import abLogo from "/abLogo.svg";
+import zen from "/zen.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";

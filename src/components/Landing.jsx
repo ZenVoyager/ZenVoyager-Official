@@ -1,5 +1,5 @@
 import React from "react";
-// import Scene from "./Scene";
+import Scene from "./Scene";
 
 import styles from "../styles/Home.module.css";
 import { Link } from "react-router-dom";
@@ -38,7 +38,7 @@ function Landing() {
           </li>
         </ul>
       </div>
-      {/* <Scene /> */}
+      <Scene />
     </section>
   );
 }
