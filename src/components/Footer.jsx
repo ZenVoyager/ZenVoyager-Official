@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "../styles/Footer.module.css";
 
-import zen_logo from "../assets/zen_trademark.svg";
+import zen_logo from "../assets/zen_trademark_one.svg";
 import { tilted_arrow } from "../assets/icons";
 
 function Footer() {

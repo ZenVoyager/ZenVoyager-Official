@@ -38,7 +38,7 @@ function Landing() {
           </li>
         </ul>
       </div>
-      <Scene />
+      {/* <Scene /> */}
     </section>
   );
 }

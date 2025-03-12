@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import zen_logo from "../assets/zen_logo.svg";
+import zen_logo from "../assets/zen_logo_two.svg";
 import styles from "../styles/Navbar.module.css";
 import "../styles/Navbar.css";
 
