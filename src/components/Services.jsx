@@ -40,7 +40,7 @@ function Services() {
       // Create the ScrollTrigger animation
       st = ScrollTrigger.create({
         trigger: container,
-        start: "top top",
+        start: "-70px top",
         end: () => `+=${totalWidth + 100}`, // Add some extra scroll room
         pin: true,
         anticipatePin: 1,

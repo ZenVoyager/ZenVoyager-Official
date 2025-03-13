@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/Extra.module.css";
 
-import bg_grad from "../assets/bg_grad.png"
-
 function Extra() {
   return (
     <section className={styles.extra_section}>

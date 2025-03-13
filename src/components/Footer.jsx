@@ -49,7 +49,7 @@ function Footer() {
       </div>
       <div className={styles.c2}>
         <a href="mailto:work.abproductions@gmail.com" className={styles.email}>
-          work.abproductions@gmail.com
+          connect@zenvoyager.in
         </a>
         <div className={styles.btn_ctr}>
           <Link className={styles.btn_s}>Join our newsletter</Link>

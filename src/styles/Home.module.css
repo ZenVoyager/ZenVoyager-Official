@@ -10,15 +10,25 @@
   min-height: 100vh;
   /* background-image: url(../assets/home_bg.png);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0 -230px;
   background-size: cover; */
   /* background-attachment: fixed; */
 }
+/* .showreel{
+  width: calc(100vw - 25rem);
+  height: auto;
+  aspect-ratio: 16/9;
+  background-color: lightgray;
+  border-radius: 30px;
+  margin: 5rem 0;
+  margin-bottom: 10rem;
+} */
 .heading_ctr {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
+  /* margin-top: 15rem; */
 }
 .jelly_tags {
   text-align: center;

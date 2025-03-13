@@ -13,30 +13,14 @@ import Reveal from "../components/Reveal"; // Import Reveal Component
 function Home() {
   return (
     <>
-      <Reveal>
-        <Landing />
-      </Reveal>
-      <Reveal>
-        <Clients />
-      </Reveal>
-      <Reveal>
-        <Services />
-      </Reveal>
-      {/* <Reveal> */}
+      <Landing />
+      <Clients />
+      <Services />
       <Projects />
-      {/* </Reveal> */}
-      <Reveal>
-        <Testimonials />
-      </Reveal>
-      <Reveal>
-        <Extra />
-      </Reveal>
-      <Reveal>
-        <Gradline />
-      </Reveal>
-      <Reveal>
-        <Footer />
-      </Reveal>
+      <Testimonials />
+      <Extra />
+      <Gradline />
+      <Footer />
     </>
   );
 }

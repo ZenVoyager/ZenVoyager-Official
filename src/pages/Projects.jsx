@@ -11,21 +11,11 @@ function Projects() {
   return (
     <>
       <ScrollToTop />
-      <Reveal>
-        <Landing />
-      </Reveal>
-      {/* <Reveal> */}
-        <Gallary />
-      {/* </Reveal> */}
-      <Reveal>
-        <Extra />
-      </Reveal>
-      <Reveal>
-        <Gradline />
-      </Reveal>
-      <Reveal>
-        <Footer />
-      </Reveal>
+      <Landing />
+      <Gallary />
+      <Extra />
+      <Gradline />
+      <Footer />
     </>
   );
 }

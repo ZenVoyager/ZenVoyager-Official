@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Projects.module.css";
-import project_img from "../assets/projects/fenton_website_ui.webp";
-import project_img_demo from "../assets/projects/demo_website.png";
 import { Link } from "react-router-dom";
 import { arrow } from "../assets/icons";
 import supabase from "../utils/supabase";
