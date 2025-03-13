@@ -103,7 +103,7 @@
   align-items: center;
   /* background: red; */
   transform: translateX(5%);
-  animation: testimonial_animation 20s linear infinite;
+  /* animation: testimonial_animation 20s linear infinite; */
 }
 @keyframes testimonial_animation {
   to {
