@@ -88,7 +88,10 @@
   display: flex;
   /* width: 100%; */
   /* flex: 1; */
-  overflow: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
   mask-image: linear-gradient(
     to right,
     hsl(0 0% 0% / 0),
@@ -97,21 +100,26 @@
     hsl(0 0% 0% / 0)
   );
 }
+.testimonial_ctr::-webkit-scrollbar {
+  display: none;
+}
 .animation_strip {
   display: flex;
-  gap: 50px;
+  gap: 10px;
   align-items: center;
   /* background: red; */
-  transform: translateX(5%);
+  transform: translateX(4%);
   /* animation: testimonial_animation 20s linear infinite; */
 }
-@keyframes testimonial_animation {
+/* @keyframes testimonial_animation {
   to {
     transform: translateX(-50%);
   }
-}
+} */
 .card {
   width: 350px;
+  min-height: 300px;
+  margin-right: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;

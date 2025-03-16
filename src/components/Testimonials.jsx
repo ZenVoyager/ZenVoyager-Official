@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../styles/Testimonials.module.css";
+import client_eh from "../assets/testimonials/eh.jpg"
+import client_fc from "../assets/testimonials/fc.jpg"
 import { Link } from "react-router-dom";
 
 function Testimonials() {
@@ -50,7 +52,7 @@ function Testimonials() {
         <div className={styles.animation_strip}>
           <div className={styles.card}>
             <img
-              src="https://picsum.photos/200"
+              src={client_eh}
               alt="profile pic"
               className={styles.profile_pic}
             />
@@ -61,25 +63,25 @@ function Testimonials() {
               </span>
             </div>
             <p className={styles.comments}>
-              AB Productions has transformed our brand image with their
+              ZenVoyager has transformed our brand image with their
               exceptional design services. They are very Professional, reliable,
               and creative. Highly recommend AB Productions.
             </p>
           </div>
           <div className={styles.card}>
             <img
-              src="https://picsum.photos/id/257/200"
+              src={client_fc}
               alt="profile pic"
               className={styles.profile_pic}
             />
             <div className={styles.details}>
-              <h4 className={styles.name}>Akshay Jain</h4>
-              <span className={styles.designation}>Fenton Chemicals</span>
+              <h4 className={styles.name}>Fenton Chemicals</h4>
+              <span className={styles.designation}>
+                UI/UX Design
+              </span>
             </div>
             <p className={styles.comments}>
-              AB Productions has transformed our brand image with their
-              exceptional design services. They are very Professional, reliable,
-              and creative. Highly recommend AB Productions.
+            ZenVoyager completely transformed our website's user experience! The design is sleek, modern, and incredibly intuitive. Highly recommended!
             </p>
           </div>
         </div>
