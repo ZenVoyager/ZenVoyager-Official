@@ -52,9 +52,9 @@ function Footer() {
           connect@zenvoyager.in
         </a>
         <div className={styles.btn_ctr}>
-          <Link className={styles.btn_s}>Join our newsletter</Link>
+          <a className={styles.btn_s}>Join our Community</a>
         </div>
-        <span className={styles.copyright}>© AB PRODUCTIONS 2024</span>
+        <span className={styles.copyright}>© ZenVoyager 2025</span>
       </div>
     </footer>
   );

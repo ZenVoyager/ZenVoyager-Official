@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Clients.module.css";
-import clients_img from "../assets/clients_strip.png";
+import clients_img from "../assets/clients_strip.webp";
 
 function Clients() {
   return (

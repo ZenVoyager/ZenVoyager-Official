@@ -108,7 +108,7 @@
   gap: 10px;
   align-items: center;
   /* background: red; */
-  transform: translateX(4%);
+  transform: translateX(3%);
   /* animation: testimonial_animation 20s linear infinite; */
 }
 /* @keyframes testimonial_animation {
