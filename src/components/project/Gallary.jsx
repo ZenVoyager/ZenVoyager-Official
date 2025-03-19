@@ -18,6 +18,7 @@ function Gallary() {
   const [visibleProjects, setVisibleProjects] = useState([]); // Projects currently displayed
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMoreProjects, setHasMoreProjects] = useState(true); // Track if there are more projects to load
   const observer = useRef(null);
 
   // Fetch all projects from Supabase
@@ -38,7 +39,7 @@ function Gallary() {
     fetchProjects();
   }, []);
 
-  // Filter projects based on category
+  // Filter projects based on category and check if there are more to load
   useEffect(() => {
     const filtered = 
       activeCategory === "All Projects"
@@ -46,11 +47,12 @@ function Gallary() {
         : projects.filter((project) => project.category === activeCategory);
 
     setVisibleProjects(filtered.slice(0, PROJECTS_PER_BATCH)); // Show first batch
+    setHasMoreProjects(filtered.length > PROJECTS_PER_BATCH); // Check if there are more projects
   }, [activeCategory, projects]);
 
   // Load more projects when the user scrolls to the bottom
   const loadMoreProjects = useCallback(() => {
-    if (loadingMore) return; // Prevent multiple calls
+    if (loadingMore || !hasMoreProjects) return; // Prevent multiple calls and stop if no more projects
 
     setLoadingMore(true);
     setTimeout(() => {
@@ -67,16 +69,20 @@ function Gallary() {
 
       if (newProjects.length > 0) {
         setVisibleProjects((prev) => [...prev, ...newProjects]);
+        // Check if there are more projects after this batch
+        setHasMoreProjects(currentCount + newProjects.length < filtered.length);
+      } else {
+        setHasMoreProjects(false);
       }
 
       setLoadingMore(false);
     }, 1000); // Simulate network delay
-  }, [activeCategory, projects, visibleProjects, loadingMore]);
+  }, [activeCategory, projects, visibleProjects, loadingMore, hasMoreProjects]);
 
   // Intersection Observer to detect when the user reaches the bottom
   const lastProjectRef = useCallback(
     (node) => {
-      if (loading || loadingMore || visibleProjects.length === projects.length) return;
+      if (loading || loadingMore || !hasMoreProjects) return;
 
       if (observer.current) observer.current.disconnect();
 
@@ -88,7 +94,7 @@ function Gallary() {
 
       if (node) observer.current.observe(node);
     },
-    [loading, loadingMore, visibleProjects, projects, loadMoreProjects]
+    [loading, loadingMore, hasMoreProjects, loadMoreProjects]
   );
 
   return (
@@ -101,9 +107,14 @@ function Gallary() {
                 className={activeCategory === category ? styles.active : ""}
                 onClick={() => {
                   setActiveCategory(category);
-                  setVisibleProjects(
-                    filteredProjects.slice(0, PROJECTS_PER_BATCH)
-                  ); // Reset visible projects when category changes
+                  // Calculate filtered projects here
+                  const filtered = 
+                    category === "All Projects"
+                      ? projects
+                      : projects.filter((project) => project.category === category);
+                  setVisibleProjects(filtered.slice(0, PROJECTS_PER_BATCH));
+                  // Reset has more projects state
+                  setHasMoreProjects(filtered.length > PROJECTS_PER_BATCH);
                 }}
               >
                 {category}
@@ -134,7 +145,7 @@ function Gallary() {
         </div>
       )}
 
-      {loadingMore && <p className={styles.loading}>Loading more projects...</p>}
+      {loadingMore && hasMoreProjects && <p className={styles.loading}>Loading more projects...</p>}
     </section>
   );
 }
