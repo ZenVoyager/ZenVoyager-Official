@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/WatchShowreel.module.css"; // Import the CSS file
-import showreel from "../assets/showreel_LQ.mp4";
+import showreel from "../assets/showreel_HQ.mp4";
 import { Clapperboard } from "lucide-react";
 import { X } from "lucide-react";
 
