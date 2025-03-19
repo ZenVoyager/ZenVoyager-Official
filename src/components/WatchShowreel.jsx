@@ -31,7 +31,7 @@ const ShowreelButton = () => {
         onClick={() => setIsOpen(true)}
         className={styles.showreel_button}
       >
-        <Clapperboard className={styles.reel_icon} color="white" size="18" /> Showreel
+        <Clapperboard className={styles.reel_icon} color="white" size="18" />
       </button>
 
       {/* Pop-up (Modal) */}
