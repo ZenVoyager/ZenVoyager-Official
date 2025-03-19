@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 5rem;
-  margin: 10rem 0;
+  /* margin: 10rem 0; */
   gap: 2rem;
   /* flex-wrap: wrap; */
 }
@@ -84,13 +84,11 @@
 }
 
 .testimonial_ctr {
-  /* background: purple; */
-  display: flex;
-  /* width: 100%; */
-  /* flex: 1; */
-  overflow-x: scroll;
+  width: 100%;
+  overflow: hidden; /* Changed from overflow-x: scroll to overflow: hidden */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  position: relative; /* Added for positioning context */
 
   mask-image: linear-gradient(
     to right,
@@ -107,15 +105,26 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  /* background: red; */
-  transform: translateX(3%);
-  /* animation: testimonial_animation 20s linear infinite; */
+  /* Remove transform: translateX(3%); since we're using animation */
+  animation: testimonial_animation 40s linear infinite;
 }
-/* @keyframes testimonial_animation {
-  to {
-    transform: translateX(-50%);
+.animation_strip:hover{
+  animation-play-state: paused;
+}
+/* Activate and update the animation */
+@keyframes testimonial_animation {
+  0% {
+    transform: translateX(0);
   }
-} */
+  100% {
+    transform: translateX(calc(-380px * 7)); /* Card width (350px) + margin-right (30px) * number of cards */
+  }
+}
+
+/* Optional: Add pause on hover */
+.testimonial_ctr:hover .slide_track {
+  animation-play-state: paused;
+}
 .card {
   width: 350px;
   min-height: 300px;
@@ -140,6 +149,7 @@
     ),
     rgba(5, 8, 14, 0.4);
   backdrop-filter: blur(22px);
+  flex-shrink: 0;
 }
 .profile_pic {
   width: 80px;
