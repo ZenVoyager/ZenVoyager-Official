@@ -76,3 +76,14 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
+@media (max-width: 500px) {
+  .showreel_button{
+    bottom: 80px;
+    font-size: 11px;
+    padding: 6px 20px;
+  }
+  .reel_icon{
+    width: 14px;
+  }
+}
