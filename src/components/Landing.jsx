@@ -1,10 +1,12 @@
 import React from "react";
-// import Scene from "./Scene";
+import Scene from "./Scene";
 
 import styles from "../styles/Home.module.css";
 import { Link } from "react-router-dom";
 import { instagram, linkedIn, facebook } from "../assets/icons";
 import Reveal from "../components/Reveal";
+// import WatchShowreel from "./WatchShowreel";
+import ShowreelButton from "./WatchShowreel";
 
 function Landing() {
   return (
@@ -48,7 +50,8 @@ function Landing() {
         </ul>
       </div>
       {/* <div className={styles.showreel}></div> */}
-      {/* <Scene /> */}
+      <Scene />
+      <ShowreelButton />
     </section>
   );
 }
