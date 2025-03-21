@@ -46,7 +46,7 @@ function App() {
           });
         })
       );
-      setLoading(false);
+      setTimeout(() => setLoading(false), 10000); // Simulate page load
     };
 
     loadMedia();
