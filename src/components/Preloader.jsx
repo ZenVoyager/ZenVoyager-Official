@@ -12,7 +12,7 @@ function Preloader() {
           src={preloaderAnimation}
           alt="loading..."
         />
-        <img className={styles.logo} src={logo} alt="Zen Voyager" />
+        {/* <img className={styles.logo} src={logo} alt="Zen Voyager" /> */}
         <span className={styles.tags}>Loading your experience</span>
       </div>
     </div>
