@@ -3,6 +3,7 @@ import styles from "../../styles/project/Landing.module.css";
 
 import { arrow_down } from "../../assets/icons";
 import Reveal from "../Reveal";
+import showreel from "../../assets/Showreel.mp4";
 
 function Landing() {
   return (
@@ -25,7 +26,16 @@ function Landing() {
       </div>
 
       <div className={styles.c2}>
-        <div className={styles.media_ctr}></div>
+        <div className={styles.media_ctr}>
+          <video
+            className={styles.showreel}
+            src={showreel}
+            muted
+            playsInline
+            loop={false} // We handle looping manually
+            autoPlay
+          />
+        </div>
       </div>
     </section>
   );

@@ -27,132 +27,105 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadMedia = async () => {
-      await Promise.all(
-        mediaFiles.map(({ type, src }) => {
-          return new Promise((resolve) => {
-            if (type === "image") {
-              const img = new Image();
-              img.src = src;
-              img.onload = resolve;
-              img.onerror = resolve;
-            } else if (type === "video") {
-              const video = document.createElement("video");
-              video.src = src;
-              video.preload = "auto"; // Helps in buffering
-              video.oncanplaythrough = resolve; // Ensures video is fully buffered
-              video.onerror = resolve;
-            }
-          });
-        })
-      );
-      setTimeout(() => setLoading(false), 10000); // Simulate page load
-    };
-
-    loadMedia();
+    setTimeout(() => setLoading(false), 4000); // Simulate page load
   }, []);
 
   return (
     <>
-      {loading ? (
-        <Preloader />
-      ) : (
-        <>
-          <Navbar />
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route
-                path="/"
-                element={
-                  <PageWrapper>
-                    <Home />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/home"
-                element={
-                  <PageWrapper>
-                    <Home />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/service/:id"
-                element={
-                  <PageWrapper>
-                    <ServiceDetails />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/about"
-                element={
-                  <PageWrapper>
-                    <About />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/project"
-                element={
-                  <PageWrapper>
-                    <Projects />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/project/:id"
-                element={
-                  <PageWrapper>
-                    <ProjectDetails />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/projects"
-                element={
-                  <PageWrapper>
-                    <Projects />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/projects/:id"
-                element={
-                  <PageWrapper>
-                    <ProjectDetails />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/contact"
-                element={
-                  <PageWrapper>
-                    <Contact />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/admin/*"
-                element={
-                  <PageWrapper>
-                    <Admin />
-                  </PageWrapper>
-                }
-              />
-              <Route
-                path="/*"
-                element={
-                  <PageWrapper>
-                    <Error />
-                  </PageWrapper>
-                }
-              />
-            </Routes>
-          </AnimatePresence>
-        </>
-      )}
+      {loading && <Preloader />}
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/service/:id"
+            element={
+              <PageWrapper>
+                <ServiceDetails />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageWrapper>
+                <About />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/project"
+            element={
+              <PageWrapper>
+                <Projects />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/project/:id"
+            element={
+              <PageWrapper>
+                <ProjectDetails />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <PageWrapper>
+                <Projects />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/projects/:id"
+            element={
+              <PageWrapper>
+                <ProjectDetails />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageWrapper>
+                <Contact />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/admin/*"
+            element={
+              <PageWrapper>
+                <Admin />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <PageWrapper>
+                <Error />
+              </PageWrapper>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }
