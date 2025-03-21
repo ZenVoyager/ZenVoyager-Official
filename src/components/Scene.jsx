@@ -1,5 +1,5 @@
 // import Spline from '@splinetool/react-spline';
-import showreel from "../assets/showreel_LQ.mp4";
+import showreel from "../assets/Showreel.mp4";
 import styles from "../styles/Scene.module.css";
 import { useEffect, useRef } from "react";
 
