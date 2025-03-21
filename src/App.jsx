@@ -35,12 +35,12 @@ function App() {
               const img = new Image();
               img.src = src;
               img.onload = resolve;
-              img.onerror = resolve;
+              // img.onerror = resolve;
             } else if (type === "video") {
               const video = document.createElement("video");
               video.src = src;
               video.onloadeddata = resolve;
-              video.onerror = resolve;
+              // video.onerror = resolve;
             }
           });
         })
