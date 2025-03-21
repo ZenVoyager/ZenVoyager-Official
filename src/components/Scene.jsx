@@ -1,4 +1,3 @@
-// import Spline from '@splinetool/react-spline';
 import showreel from "../assets/Showreel.mp4";
 import styles from "../styles/Scene.module.css";
 import { useEffect, useRef } from "react";
@@ -20,17 +19,30 @@ export default function Scene() {
 
     video.addEventListener("timeupdate", handleTimeUpdate);
 
-    // Ensure video starts from 5s when loaded
-    const handleLoadedMetadata = () => {
+    // Check if video was preloaded globally
+    const wasPreloaded = typeof window !== 'undefined' && window.showreelPreloaded;
+    
+    // Function to handle video initialization
+    const initializeVideo = () => {
       video.currentTime = 5;
-      video.play();
+      video.play().catch(err => {
+        console.error("Error playing video:", err);
+        // You might want to add fallback behavior here
+      });
     };
 
-    video.addEventListener("loadedmetadata", handleLoadedMetadata);
+    if (wasPreloaded) {
+      // If video was preloaded, initialize immediately
+      console.log("Using preloaded showreel");
+      initializeVideo();
+    } else {
+      // Otherwise wait for metadata to load
+      video.addEventListener("loadedmetadata", initializeVideo);
+    }
 
     return () => {
       video.removeEventListener("timeupdate", handleTimeUpdate);
-      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      video.removeEventListener("loadedmetadata", initializeVideo);
     };
   }, []);
 
@@ -43,17 +55,7 @@ export default function Scene() {
         muted
         playsInline
         loop={false} // We handle looping manually
-        autoPlay
       />
     </section>
   );
 }
-
-/*
-return (
-    <section className={styles.threedbg}>
-      <div className={styles.mask}></div>
-    <Spline scene="https://prod.spline.design/xJcnRnnq3u-oC2t9/scene.splinecode" />
-    </section>
-  );
-*/

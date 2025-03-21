@@ -1,13 +1,11 @@
-.preloader_section {
-  position: fixed;
+/* .preloader_section {
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  background-color: var(--bg);
-}
+} */
 .preloader_ctr {
   display: flex;
   flex-direction: column;
@@ -24,7 +22,7 @@
   border-radius: 9px;
 }
 .tags {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 12px;
   display: flex;
   padding: 4px 18px;
