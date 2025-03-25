@@ -34,10 +34,14 @@
 
 /* Left Section Styling */
 .leftSection {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch; /*Smooth scrolling on iOS*/
+  overscroll-behavior-y: contain; /* Prevent bounce/scroll on parent */
   width: 40%;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 40px;
+  padding: 0 40px;
 }
 .leftSection::-webkit-scrollbar {
   display: none;
@@ -164,6 +168,13 @@
   -webkit-text-fill-color: transparent;
 }
 
+.snap_section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  overflow-y: auto;
+  /* border: 5px solid white; */
+}
+
 /* 📌 Responsive Design for Mobile */
 @media screen and (max-width: 1150px) {
   .leftSection,
@@ -233,7 +244,7 @@
 .markdown_content {
   line-height: 1.7;
   color: var(--white);
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
   padding: 1rem 0;
   border-radius: 8px;
 }

@@ -52,26 +52,9 @@ function ProjectDetails() {
       <div className={styles.container}>
         {/* Left Section - Details */}
         <div className={styles.leftSection}>
-          <div className={styles.project_details_section}>
+          <div className={`${styles.project_details_section} ${styles.snap_section}`}>
             <h2 className={styles.heading}>{project.heading}</h2>
 
-            {/* Project Metadata */}
-            {/* <div className={styles.project_metadata}>
-            <div className={styles.metadata_item}>
-              <span className={styles.metadata_label}>Category:</span>
-              {project.category === 'Other' 
-                ? project.otherCategory 
-                : project.category}
-            </div>
-            {project.project_date && (
-              <div className={styles.metadata_item}>
-                <span className={styles.metadata_label}>Date:</span>
-                {new Date(project.project_date).toLocaleDateString()}
-              </div>
-            )}
-          </div> */}
-
-            {/* Tags */}
             <ul className={styles.jelly_tags}>
               {project.tags.map((tag, index) => (
                 <li key={index}>{tag}</li>
@@ -100,7 +83,7 @@ function ProjectDetails() {
               {project.sections.map((section, index) => (
                 <div
                   key={index}
-                  className={`${styles.project_details_section} ${styles.additional_section}`}
+                  className={`${styles.project_details_section} ${styles.additional_section} ${styles.snap_section}`}
                 >
                   <h3 className={styles.heading}>{section.heading}</h3>
                   <div className={styles.markdown_content}>

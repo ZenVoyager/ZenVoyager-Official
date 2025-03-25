@@ -7,7 +7,7 @@
   z-index: -1000;
   mask: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.15) 0%,
     rgba(0, 0, 0, 0) 100%
   );
 }
@@ -16,5 +16,5 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: blur(2px);
+  /* filter: saturate(0); */
 }
