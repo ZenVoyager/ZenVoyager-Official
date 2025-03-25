@@ -47,7 +47,8 @@ export default function Scene() {
   }, []);
 
   return (
-    <section className={styles.threedbg}>
+    <section className={styles.showreel_bg}>
+    <div className={styles.threedbg}>
       <video
         className={styles.showreel}
         ref={videoRef}
@@ -56,6 +57,6 @@ export default function Scene() {
         playsInline
         loop={false} // We handle looping manually
       />
-    </section>
+    </div></section>
   );
 }

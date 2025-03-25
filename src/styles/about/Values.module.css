@@ -65,6 +65,8 @@
       rgba(246, 246, 246, 0) 100%
     ),
     rgba(5, 7, 9, 0.5);
+
+    backdrop-filter: blur(10px);
 }
 
 .serial_no {

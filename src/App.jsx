@@ -9,11 +9,13 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
 import Navbar from "./components/Navbar";
+import Background from "./components/Background";
 import ScrollToTop from "./components/ScrollToTop";
 import ProjectDetails from "./pages/ProjectDetails";
 import ServiceDetails from "./pages/ServiceDetails";
 import Admin from "./pages/Admin";
 import Preloader from "./components/Preloader";
+
 import { useEffect, useState, useRef } from "react";
 
 // Import the video directly to preload it
@@ -85,6 +87,7 @@ function App() {
     <>
       <Preloader isLoading={loading} />
       {!loading && <Navbar />}
+      <Background />
       <AnimatePresence mode="wait">
         {!loading && (
           <Routes location={location} key={location.pathname}>

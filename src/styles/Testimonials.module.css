@@ -126,6 +126,7 @@
   animation-play-state: paused;
 }
 .card {
+  position: relative;
   width: 350px;
   min-height: 300px;
   margin-right: 30px;
@@ -148,9 +149,11 @@
       rgba(255, 255, 255, 0.3) 100%
     ),
     rgba(5, 8, 14, 0.4);
-  backdrop-filter: blur(22px);
+
   flex-shrink: 0;
+  backdrop-filter: blur(10px);
 }
+
 .profile_pic {
   width: 80px;
   height: 80px;
