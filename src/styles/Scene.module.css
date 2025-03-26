@@ -9,7 +9,7 @@
   mask: radial-gradient(
     50% 50% at 50% 50%,
     rgba(0, 0, 0, 1) 0%,
-    /* rgba(0, 0, 0, 0.7) 90%, */
+    rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 0) 100%
   );
   background: var(--bg);
