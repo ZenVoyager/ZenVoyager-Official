@@ -20,13 +20,13 @@ function Footer() {
         <div className={styles.footer_nav_links_ctr}>
           <ul className={styles.footer_nav_links}>
             <li>
-              <a href="">LinkedIn {tilted_arrow}</a>
+              <a href="https://www.linkedin.com/company/zenvoyager/" target="_blank">LinkedIn {tilted_arrow}</a>
             </li>
             <li>
               <a href="">Facebook {tilted_arrow}</a>
             </li>
             <li>
-              <a href="">Instagram {tilted_arrow}</a>
+              <a href="https://www.instagram.com/zenvoyagers/" target="_blank">Instagram {tilted_arrow}</a>
             </li>
           </ul>
           <ul className={styles.footer_nav_links}>
@@ -48,7 +48,7 @@ function Footer() {
         </ul>
       </div>
       <div className={styles.c2}>
-        <a href="mailto:work.abproductions@gmail.com" className={styles.email}>
+        <a href="mailto:connect@zenvoyager.in" className={styles.email}>
           connect@zenvoyager.in
         </a>
         <div className={styles.btn_ctr}>

@@ -7,6 +7,7 @@ import Gradline from "../components/Gradline";
 import Footer from "../components/Footer";
 import Extra from "../components/Extra";
 import ScrollToTop from "../components/ScrollToTop";
+import Team from "../components/Team";
 
 function About() {
   return (
@@ -15,6 +16,7 @@ function About() {
       <Landing />
       <Values />
       <Workflow />
+      <Team />
       <Extra />
       <Gradline />
       <Footer />

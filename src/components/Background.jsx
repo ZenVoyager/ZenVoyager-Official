@@ -1,5 +1,5 @@
 import React from "react";
-import backgorund_video from "../assets/bg_vid.mp4";
+import backgorund_video from "../assets/bg_vid_2.mp4";
 import styles from "../styles/Background.module.css"
 
 function Background() {
