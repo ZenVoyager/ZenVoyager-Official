@@ -54,7 +54,7 @@ const testimonialData = [
   {
     id: 1,
     image: client_hls,
-    name: "Rohit Rawat",
+    name: "Dr. Rohit Rawat",
     designation: "Founder, HariLifesciences",
     comment: "ZenVoyager completely transformed our website's user experience! The design is sleek, modern, and incredibly intuitive. They understood our vision and executed it flawlessly. Highly recommended!"
   },
