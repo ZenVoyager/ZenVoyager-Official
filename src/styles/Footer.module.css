@@ -65,7 +65,50 @@
 }
 .email {
   font-size: 28px;
+  position: relative;
 }
+.email::before {
+  content: "Click to send an email";
+  font-size: 12px;
+  position: absolute;
+  border-radius: 8px;
+  background: radial-gradient(
+    80% 130% at 0% 10%,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  /* border: 1px solid rgba(255, 255, 255, 0.4); */
+  padding: 5px 20px;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.email::after {
+  content: "";
+  position: absolute;
+  
+  width: 0;
+  height: 0;
+  --size: 7px;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid rgba(255, 255, 255, 0.2);
+  opacity: 15%;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.email:hover.email::before,
+.email:hover.email::after {
+  opacity: 1;
+}
+
 .btn_ctr {
   margin-bottom: 50px;
 }
@@ -112,48 +155,48 @@
 }
 
 @media (max-width: 1000px) {
-  .email{
+  .email {
     font-size: 24px;
   }
-  .btn_ctr{
+  .btn_ctr {
     margin-bottom: 70px;
   }
 }
 @media (max-width: 930px) {
-  .footer_section{
+  .footer_section {
     flex-wrap: wrap;
     gap: 30px;
   }
-  .c2{
+  .c2 {
     align-items: flex-start;
     gap: 30px;
   }
-  .btn_ctr{
+  .btn_ctr {
     margin-bottom: 0;
   }
 }
 @media (max-width: 550px) {
-  .footer_section{
+  .footer_section {
     padding: 2rem;
   }
 }
 
 @media (max-width: 470px) {
-  .footer_nav_links li a{
+  .footer_nav_links li a {
     font-size: 14px;
   }
-  .email{
+  .email {
     font-size: 16px;
   }
-  .btn_s{
+  .btn_s {
     font-size: 12px;
   }
-  .footer_nav_links{
+  .footer_nav_links {
     gap: 10px;
   }
 }
 @media (max-width: 350px) {
-  .email{
+  .email {
     font-size: 14px;
   }
 }
