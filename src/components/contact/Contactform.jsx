@@ -15,6 +15,17 @@ function Contactform() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // Validation functions
+  const validatePhoneNumber = (phone) => {
+    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    return phoneRegex.test(phone);
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -27,8 +38,39 @@ function Contactform() {
     e.preventDefault();
     setLoading(true);
     
-    if (!formData.name || !formData.phone || !formData.email || !formData.message) {
-      alert("Please fill in all fields.");
+    // Validation checks
+    if (!formData.name.trim()) {
+      alert("Please enter your name.");
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.phone.trim()) {
+      alert("Please enter your phone number.");
+      setLoading(false);
+      return;
+    }
+
+    if (!validatePhoneNumber(formData.phone)) {
+      alert("Please enter a valid phone number.");
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      alert("Please enter your email address.");
+      setLoading(false);
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      alert("Please enter a valid email address.");
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      alert("Please enter a message.");
       setLoading(false);
       return;
     }
@@ -47,6 +89,7 @@ function Contactform() {
       setFormData({ name: "", phone: "", email: "", message: "", interest: "Design" });
     } catch (error) {
       console.error("Error adding document: ", error);
+      alert("An error occurred while sending your message. Please try again.");
     }
     setLoading(false);
   };
@@ -55,7 +98,6 @@ function Contactform() {
     <section className={styles.contact_form_section}>
       <div className={styles.c1}>
         <div className={styles.img_ctr}>
-          {/* <img src={contact_img} alt="" /> */}
           <video autoPlay loop muted>
             <source src={contact_vid} type="video/mp4" />
           </video>
@@ -99,7 +141,7 @@ function Contactform() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+91 ----- -----"
+              placeholder="Phone No."
             />
             <input
               type="email"
@@ -115,7 +157,7 @@ function Contactform() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="I’m here to say hello..."
+              placeholder="I'm here to say hello..."
             />
           </div>
           <button type="submit" className={`${styles.btn_p}`} disabled={loading}>

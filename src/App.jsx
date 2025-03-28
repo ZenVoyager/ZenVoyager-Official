@@ -87,7 +87,7 @@ function App() {
     <>
       <Preloader isLoading={loading} />
       {!loading && <Navbar />}
-      <Background />
+      {/* <Background /> */}
       <AnimatePresence mode="wait">
         {!loading && (
           <Routes location={location} key={location.pathname}>

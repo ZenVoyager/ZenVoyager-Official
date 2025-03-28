@@ -82,6 +82,11 @@
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
+  /* overflow: hidden; */
+}
+.profile_pic img{
+  width: 100%;
+  border-radius: 10px;
 }
 
 .name {

@@ -39,13 +39,13 @@ function Landing() {
         <span className={`txt-s`}>Connect with us</span>
         <ul className={styles.social_links}>
           <li>
-            <a href="#">{instagram}</a>
+            <a href="https://www.instagram.com/zenvoyagers/" target="_blank">{instagram}</a>
           </li>
           <li>
-            <a href="#">{linkedIn}</a>
+            <a href="https://www.linkedin.com/company/zenvoyager/">{linkedIn}</a>
           </li>
           <li>
-            <a href="#">{facebook}</a>
+            <a href="" target="_blank">{facebook}</a>
           </li>
         </ul>
       </div>
