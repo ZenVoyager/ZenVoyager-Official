@@ -23,7 +23,7 @@ function Navbar() {
       <div className={styles.navbar}>
         <div className={styles.logo}>
           <Link to="/">
-            <img src={zen_logo} alt="AB Productions" />
+            <img src={zen_logo} alt="ZenVoyager" />
           </Link>
         </div>
 

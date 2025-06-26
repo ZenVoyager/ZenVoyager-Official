@@ -10,6 +10,8 @@ import {
   conference,
 } from "../../assets/services/icons";
 
+import coding_service_video from "../../assets/services/coding_video.mp4"
+
 function Landing({ service }) {
   const [formData, setFormData] = useState({
     name: "connected through landing page",
@@ -80,6 +82,14 @@ function Landing({ service }) {
     }
   };
 
+  const getVideo = (id) => {
+    switch(id) {
+      case "code": return coding_service_video;
+      // Add other cases for different services if needed
+      default: return null; // Default video
+    }
+  }
+
   return (
     <section className={styles.landing_section}>
       <div className={styles.c1}>
@@ -103,7 +113,13 @@ function Landing({ service }) {
         </div>
       </div>
       <div className={styles.c2}>
-        <div className={styles.media_ctr}></div>
+        <div className={styles.media_ctr}>
+          <video className={styles.service_video} src={getVideo(service.id)} autoPlay muted loop></video>
+        </div>
+      </div>
+
+      <div className={styles.backdrop_effect}>
+        <video className={styles.service_video} src={getVideo(service.id)} autoPlay muted loop></video>
       </div>
     </section>
   );

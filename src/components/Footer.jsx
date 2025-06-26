@@ -14,7 +14,7 @@ function Footer() {
           <img
             className={styles.logo}
             src={zen_logo}
-            alt="AB Productions"
+            alt="ZenVoyager"
           />
         </div>
         <div className={styles.footer_nav_links_ctr}>

@@ -7,6 +7,21 @@
   gap: 2rem;
   position: relative;
 }
+.backdrop_effect{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.2;
+  filter: blur(100px);
+  /* mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  ); */
+}
 .c1 {
   /* background-color: red; */
   /* width: 100%; */
@@ -29,7 +44,7 @@
   grid-auto-flow: row;
 }
 .media_ctr {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   /* width: 100%; */
   max-width: 500px;
   height: auto;
@@ -37,6 +52,11 @@
   border-radius: 20px;
   overflow: hidden;
   margin: auto;
+}
+.service_video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .heading {
   --radical-x: 50%;
