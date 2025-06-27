@@ -114,12 +114,13 @@ function Landing({ service }) {
       </div>
       <div className={styles.c2}>
         <div className={styles.media_ctr}>
-          <video className={styles.service_video} src={getVideo(service.id)} autoPlay muted loop></video>
+          <video className={styles.service_video} src={getVideo(service.id)} preload="none" playsInline autoPlay muted loop></video>
         </div>
       </div>
 
+          {/* <div className={styles.backdrop_overlay}></div> */}
       <div className={styles.backdrop_effect}>
-        <video className={styles.service_video} src={getVideo(service.id)} autoPlay muted loop></video>
+        <video className={styles.service_video} src={getVideo(service.id)} preload="none" playsInline autoPlay muted loop></video>
       </div>
     </section>
   );

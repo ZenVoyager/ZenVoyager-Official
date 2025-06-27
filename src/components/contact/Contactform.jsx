@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { db } from "../../Firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import styles from "../../styles/contact/Contactform.module.css";
-import contact_vid from "../../assets/contact/mov_one.mp4"
+import contact_vid from "../../assets/contact/mov_one.mp4";
 
 function Contactform() {
   const [formData, setFormData] = useState({
@@ -17,7 +17,8 @@ function Contactform() {
 
   // Validation functions
   const validatePhoneNumber = (phone) => {
-    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    const phoneRegex =
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     return phoneRegex.test(phone);
   };
 
@@ -37,7 +38,7 @@ function Contactform() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Validation checks
     if (!formData.name.trim()) {
       alert("Please enter your name.");
@@ -86,7 +87,13 @@ function Contactform() {
         setSuccess(false);
       }, 5000);
 
-      setFormData({ name: "", phone: "", email: "", message: "", interest: "Design" });
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+        interest: "Design",
+      });
     } catch (error) {
       console.error("Error adding document: ", error);
       alert("An error occurred while sending your message. Please try again.");
@@ -160,11 +167,28 @@ function Contactform() {
               placeholder="I'm here to say hello..."
             />
           </div>
-          <button type="submit" className={`${styles.btn_p}`} disabled={loading}>
+          <button
+            type="submit"
+            className={`${styles.btn_p}`}
+            disabled={loading}
+          >
             {loading ? "Sending..." : "Let's Discuss"}
           </button>
-          {success && <p className={styles.floatingMessage}>Message sent successfully!</p>}
+          {success && (
+            <p className={styles.floatingMessage}>Message sent successfully!</p>
+          )}
         </form>
+      </div>
+      <div className={styles.backdrop_effect}>
+        <video
+          className={styles.service_video}
+          src={contact_vid}
+          preload="none"
+          playsInline
+          autoPlay
+          muted
+          loop
+        ></video>
       </div>
     </section>
   );

@@ -37,6 +37,17 @@ function Landing() {
           />
         </div>
       </div>
+      <div className={styles.backdrop_effect}>
+        <video
+          className={styles.service_video}
+          src={showreel}
+          preload="none"
+          playsInline
+          autoPlay
+          muted
+          loop
+        ></video>
+      </div>
     </section>
   );
 }
