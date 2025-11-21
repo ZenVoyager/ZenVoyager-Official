@@ -34,7 +34,7 @@ function Footer() {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <a href="">FAQs</a>
+              <Link to="/faqs">FAQs</Link>
             </li>
             <li>
               <a href="">Privacy Policy</a>
