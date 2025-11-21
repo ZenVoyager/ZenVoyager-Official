@@ -54,18 +54,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--white-t-5);
-  padding: 2rem;
+  /* background-color: var(--white-t-5); */
+  padding: 1.5rem 2rem;
   border: 1px solid var(--white-t-20);
   border-radius: 12px;
   cursor: pointer;
 }
+
 .question {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   cursor: pointer;
-  gap: 1rem;
 }
 .open {
   gap: 10px;
@@ -131,6 +130,9 @@
         text-align: center;
         /* max-width: 450px; */
     }
+    .qna_ctr{
+      padding: 1rem 1.5rem;
+    }
 }
 @media (max-width: 550px) {
     .faq_section{
@@ -142,7 +144,17 @@
     }
     
     .head_txt{
-        font-size: 28px;
+        font-size: 22px;
     }
-    
+    .para_txt{
+        font-size: 12px;
+        width: 300px;
+    }
+    .question_text{
+      font-size: 12px;
+      max-width: 250px;
+    }
+    .answer{
+      font-size: 12px;
+    }
 }

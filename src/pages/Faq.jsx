@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from "react";
 import styles from "../styles/Faq.module.css";
 import { ChevronDown } from "lucide-react";
+import Footer from "../components/Footer"
+import ScrollToTop from "../components/ScrollToTop"
 
 const FAQS = [
   {
     question: "What services does ZenVoyager offer?",
     answer:
-      "ZenVoyager provides end-to-end services including web development (React.js & full-stack), mobile app development, custom software, UI/UX & branding, graphic design, video production & editing, and training & bootcamps.",
+      "ZenVoyager provides end-to-end services including full-stack web development, mobile app development, custom software, UI/UX & branding, graphic design, video production & editing.",
   },
   {
     question: "Do you build websites specifically for Indian businesses?",
@@ -89,6 +91,8 @@ export default function Faq() {
   );
 
   return (
+    <>
+    <ScrollToTop />
     <section className={styles.faq_section} aria-labelledby="faq-heading">
       <div className={styles.heading_ctr}>
         <span className={styles.head_txt}>
@@ -149,5 +153,7 @@ export default function Faq() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </section>
+    <Footer />
+    </>
   );
 }
