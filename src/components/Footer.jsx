@@ -31,7 +31,7 @@ function Footer() {
           </ul>
           <ul className={styles.footer_nav_links}>
             <li>
-              <a href="">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
             <li>
               <a href="">FAQs</a>

@@ -13,6 +13,7 @@ import Background from "./components/Background";
 import ScrollToTop from "./components/ScrollToTop";
 import ProjectDetails from "./pages/ProjectDetails";
 import ServiceDetails from "./pages/ServiceDetails";
+import Faq from "./pages/Faq";
 import Admin from "./pages/Admin";
 import Preloader from "./components/Preloader";
 
@@ -160,6 +161,14 @@ function App() {
               element={
                 <PageWrapper>
                   <Contact />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/faqs"
+              element={
+                <PageWrapper>
+                  <Faq />
                 </PageWrapper>
               }
             />
