@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of backend/admin/internal routes
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /internal/
+Disallow: /api/
+Disallow: /server/
+Disallow: /private/
+
+# Point search engines to your sitemap
+Sitemap: https://zenvoyager.in/sitemap.xml
