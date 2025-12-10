@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { db } from "../../Firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import styles from "../../styles/contact/Contactform.module.css";
 import contact_vid from "../../assets/contact/mov_one.mp4";
 
 function Contactform() {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -77,6 +79,19 @@ function Contactform() {
     }
 
     try {
+      // --- Start of EmailJS Integration ---
+      const serviceId = "zenvoyager_c2025";
+      const templateId = "template_pflq0ji";
+      const publicKey = "Mqi-Ipef1tiC8vnB3";
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        formData,
+        publicKey
+      );
+      // --- End of EmailJS Integration ---
+
       await addDoc(collection(db, "inbox"), {
         ...formData,
         timestamp: Timestamp.fromDate(new Date()),
