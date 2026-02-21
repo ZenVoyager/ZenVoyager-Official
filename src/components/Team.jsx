@@ -7,6 +7,7 @@ import { AtSign, Twitter } from "lucide-react";
 
 import arin_pp from "../assets/arin_profile_photo.webp"
 import anuj_pp from "../assets/anuj_profile_photo.webp"
+import murtuza_pp from "../assets/murtuza_profile_photo.webp"
 import yash_pp from "../assets/yash_profile_photo.webp"
 
 import LiquidChrome from './LiquidChrome';
@@ -45,7 +46,7 @@ function Team() {
               <span className={`playfair italic`}>Arin</span> Bagul
             </h4>
             <div className={styles.details}>
-              <span>Founder</span>
+              <span>Co-Founder</span>
               <span>Developer, Designer</span>
             </div>
             <div className={styles.line}></div>
@@ -73,7 +74,7 @@ function Team() {
               <span className={`playfair italic`}>Anuj</span> Rawat
             </h4>
             <div className={styles.details}>
-              <span>Founder</span>
+              <span>Co-Founder</span>
               <span>Designer</span>
             </div>
             <div className={styles.line}></div>
@@ -86,6 +87,34 @@ function Team() {
               </li>
               <li>
                 <a href="mailto:anujrawat@zenvoyager.in"><AtSign width={20} height={20}/></a>
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.card}>
+            <div className={styles.banner}>
+              <img src={team_bg} alt="" className={styles.banner_img} />
+              <div className={styles.profile_pic}>
+                <img src={murtuza_pp} alt="" />
+              </div>
+            </div>
+            <h4 className={styles.name}>
+              <span className={`playfair italic`}>Md.</span> Murtuza
+            </h4>
+            <div className={styles.details}>
+              <span>Co-Founder</span>
+              <span>Information Security</span>
+            </div>
+            <div className={styles.line}></div>
+            <ul className={styles.social_links}>
+              <li>
+                <a href="https://www.instagram.com/md_murtuza19/" target="_blank">{instagram}</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/murtuza19/" target="_blank">{linkedIn}</a>
+              </li>
+              <li>
+                <a href="mailto:murtuza@zenvoyager.in"><AtSign width={20} height={20}/></a>
               </li>
             </ul>
           </div>
