@@ -8,6 +8,7 @@ import { AtSign, Twitter } from "lucide-react";
 import arin_pp from "../assets/arin_profile_photo.webp"
 import anuj_pp from "../assets/anuj_profile_photo.webp"
 import murtuza_pp from "../assets/murtuza_profile_photo.webp"
+import naman_pp from "../assets/naman_profile_photo.webp"
 import yash_pp from "../assets/yash_profile_photo.webp"
 
 import LiquidChrome from './LiquidChrome';
@@ -95,26 +96,26 @@ function Team() {
             <div className={styles.banner}>
               <img src={team_bg} alt="" className={styles.banner_img} />
               <div className={styles.profile_pic}>
-                <img src={murtuza_pp} alt="" />
+                <img src={naman_pp} alt="" />
               </div>
             </div>
             <h4 className={styles.name}>
-              <span className={`playfair italic`}>Md.</span> Murtuza
+              <span className={`playfair italic`}>Naman</span> Raghuvanshi
             </h4>
             <div className={styles.details}>
-              <span>Co-Founder</span>
-              <span>Information Security</span>
+              <span>Dev-Ops &</span>
+              <span>Cyber Security</span>
             </div>
             <div className={styles.line}></div>
             <ul className={styles.social_links}>
               <li>
-                <a href="https://www.instagram.com/md_murtuza19/" target="_blank">{instagram}</a>
+                <a href="https://www.instagram.com/mr._.raghuwanshi/" target="_blank">{instagram}</a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/murtuza19/" target="_blank">{linkedIn}</a>
+                <a href="https://www.linkedin.com/in/namanraghuwanshi/" target="_blank">{linkedIn}</a>
               </li>
               <li>
-                <a href="mailto:murtuza@zenvoyager.in"><AtSign width={20} height={20}/></a>
+                <a href="mailto:naman@zenvoyager.in"><AtSign width={20} height={20}/></a>
               </li>
             </ul>
           </div>

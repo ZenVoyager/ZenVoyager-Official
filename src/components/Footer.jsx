@@ -23,7 +23,7 @@ function Footer() {
               <a href="https://www.linkedin.com/company/zenvoyager/" target="_blank">LinkedIn {tilted_arrow}</a>
             </li>
             <li>
-              <a href="">Facebook {tilted_arrow}</a>
+              <a href="https://www.behance.net/zenvoyagers" target="_blank">Behance {tilted_arrow}</a>
             </li>
             <li>
               <a href="https://www.instagram.com/zenvoyagers/" target="_blank">Instagram {tilted_arrow}</a>
@@ -52,9 +52,9 @@ function Footer() {
           connect@zenvoyager.in
         </a>
         <div className={styles.btn_ctr}>
-          <a className={styles.btn_s}>Join our Community</a>
+          <a href="tel:+918349770721" className={styles.btn_s}>Discuss the Project</a>
         </div>
-        <span className={styles.copyright}>© ZenVoyager 2025</span>
+        <span className={styles.copyright}>© ZenVoyager 2026</span>
       </div>
     </footer>
   );
