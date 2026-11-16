@@ -96,6 +96,34 @@ function Team() {
             <div className={styles.banner}>
               <img src={team_bg} alt="" className={styles.banner_img} />
               <div className={styles.profile_pic}>
+                <img src={yash_pp} alt="" />
+              </div>
+            </div>
+            <h4 className={styles.name}>
+              <span className={`playfair italic`}>Yash</span> Yadav
+            </h4>
+            <div className={styles.details}>
+              <span>Tech Lead</span>
+              <span>Developer</span>
+            </div>
+            <div className={styles.line}></div>
+            <ul className={styles.social_links}>
+              <li>
+                <a href="https://www.instagram.com/mr_yash_.yadav/" target="_blank">{instagram}</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/yash-yaduwanshi-210864279/" target="_blank">{linkedIn}</a>
+              </li>
+              <li>
+                <a href="mailto:yaduwanshiyash11@gmail.com"><AtSign width={20} height={20}/></a>
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.card}>
+            <div className={styles.banner}>
+              <img src={team_bg} alt="" className={styles.banner_img} />
+              <div className={styles.profile_pic}>
                 <img src={naman_pp} alt="" />
               </div>
             </div>
@@ -120,33 +148,7 @@ function Team() {
             </ul>
           </div>
 
-          <div className={styles.card}>
-            <div className={styles.banner}>
-              <img src={team_bg} alt="" className={styles.banner_img} />
-              <div className={styles.profile_pic}>
-                <img src={yash_pp} alt="" />
-              </div>
-            </div>
-            <h4 className={styles.name}>
-              <span className={`playfair italic`}>Yash</span> Yadav
-            </h4>
-            <div className={styles.details}>
-              <span>Tech Lead</span>
-              <span>Developer</span>
-            </div>
-            <div className={styles.line}></div>
-            <ul className={styles.social_links}>
-              <li>
-                <a href="https://www.instagram.com/mr_yash_.yadav/" target="_blank">{instagram}</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/yash-yaduwanshi-210864279/" target="_blank">{linkedIn}</a>
-              </li>
-              <li>
-                <a href="mailto:yaduwanshiyash11@gmail.com"><AtSign width={20} height={20}/></a>
-              </li>
-            </ul>
-          </div>
+          
 
         </div>
       </div>
